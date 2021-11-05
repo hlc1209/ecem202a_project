@@ -8,3 +8,6 @@ Use the folders as follows:
 * data/ for data data used in your project
 
 You may add additional folders as necessary.
+
+# Website URL
+https://hlc1209.github.io/ecem202a_project/
