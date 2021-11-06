@@ -38,7 +38,7 @@ In short, such device brings a new way of electronic interface with high perform
 
 # 5. Challenges
 
-
+First of all, the experience of handwriting recognition input is critical, i.e., low latency, high accuracy and high efficiency. After we decided to use on-device deep learning inference for handwriting character recognition, it became pivotal to implement fast and accurate model inference while handling GUI drawing, user stroke input and BLE transmission on an ultra-low power device. Secondly, how to achieve seamless handwriting input on ultra-low power devices is to be overcome. We need a strong collaboration of deep learning models and GUI to achieve this. Likewise, data transmission via BLE is very important and needs to be user friendly, low latency and highly reliable. 
 
 # 6. Requirement for Success
 
