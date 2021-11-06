@@ -28,7 +28,7 @@ Nowadays, seamless handwritten recognition solutions either work on specialized 
 
 Therefore, high compatibility and seamless input experience are the main aspects that makes our proposed device stand out from other touchscreen solutions available in the market. 
 
-Moreover, given the flexibility of handwritten input, our device enables fast execution of complex commands by binding a custom stroke to a sequence of instructions. Simultaneously, the device has unlimited possibilities for functional expansion. For example, performing calculations on handwritten numbers and symbols and transmitting the final results to the terminal equipment via BLE.
+Moreover, given the flexibility of handwritten input, our device enables fast execution of complex commands by binding a custom stroke to a sequence of instructions. Simultaneously, the device has unlimited possibilities for extended functionality. For example, performing calculations on handwritten numbers and symbols and transmitting the final results to the terminal equipment via BLE.
 
 # 4. Potential Impact
 
@@ -42,9 +42,9 @@ First of all, the experience of handwriting recognition input is critical, i.e.,
 
 # 6. Requirement for Success
 
-To build such a system, the following skillsets and resources are needed.
+To build such a system, the following skill sets and resources are needed.
 
-## Skillsets
+## Skill sets
 * Embedded system
 * Real-time operating system
 * Bluetooth Low Energy (BLE)
@@ -52,9 +52,9 @@ To build such a system, the following skillsets and resources are needed.
 * Electronics
 * Machine Learning and model compression
 
-## Skillsets potentially in need
+## Skill sets potentially in need
 * PCB design
-* Mechenical Design
+* Mechanical Design
 
 ## Hardware
 * Arduino Nano 33 BLE Sense
@@ -67,44 +67,50 @@ To build such a system, the following skillsets and resources are needed.
 
 # 7. Metrics of Success
 
-The successfulness of the project will be evaluated through the following metrics. 
+The success of the project will be evaluated through the following metrics. 
 
 1. Accuracy:
-   Successful rate of recognitzing the written characters.
+   The success rate of recognizing written characters.
 
 2. Response time:
-   The time from a character is written to the inference is done.
+   The time from writing a character to the completion of transmission.
 
-3. Power consumption:
+3. Seamlessness: 
+   The time from writing a sentence to the completion of transmission.
+
+4. Power consumption:
    The power consumption of the entire system.
 
-4. Weight:
+5. Weight:
    The weight of the overall system.
 
 
 # 8. Execution Plan
 
-The project can be partitioned into 5 mandatory tasks and 1 optional task:
+The project can be partitioned into 5 mandatory tasks and 2 optional tasks:
 
 1. Development of the embedded system.
    Interface the touchscreen to obtain handwritten characters properly. Develop BLE connection between Arduino Nano 33 BLE Sense and laptop. 
 
 2. Machine learning model development:
-   Develop and compress machine learning model to meet the accuracy and response time criteria with respect to the hardware constraint in static settings.
+   Develop and compress machine learning model to meet the accuracy and response time criteria with respect to the hardware constraint.
 
 3. System Integration:
-   Fully integrate the machine learning model with touchscreen and BLE function enabled. Ensure the real-time feature of the system. 
+   Fully integrate the machine learning model with the touch screen and BLE to achieve basic system features. 
 
 4. Model Optimization:
-   Optimize the machine learning model to improve accuracy and reduce the run-time of the model. 
+   Optimize the machine learning model for seamless handwritten input, improved accuracy, and reduced model runtime.
 
 5. System optimization:
-   Reduce the latency of the system and improve the user experience of the system.
+   Reduce system latency and optimize the GUI to improve user interaction experience.
 
-6. System packaging (Optional):
+6. Extended Functionality (Optional):
+   Implement some interesting functionalities, e.g., direct calculation and customized shortcuts.
+
+7. System packaging (Optional):
    Migrate the system from breadboard to a perfboard/PCB with proper power system if time allowed. Design a 3D-printed package to minimize the size of the entire system. 
 
-Yu Nong will be mainly responsible for task 1, 3, 5, 6 and Hanlong Chen will be mainly responsible for task 2, 3, 4, 6.
+Yu Nong will be mainly responsible for task 1, 3, 5, 6, 7 and Hanlong Chen will be mainly responsible for task 2, 3, 4, 6, 7.
 
 The proposed timeline is the following.
 
