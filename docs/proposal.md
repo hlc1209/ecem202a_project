@@ -26,7 +26,7 @@ Nevertheless, this powerful approach relies on strong chips on Android devices a
 
 Nowadays, seamless handwritten recognition solutions either work on specialized devices or touchscreen enabled high-end electronics, e.g., BMW iDrive infotainment system and Apple iPad. Also, the handwritten recognition algorithm of these devices typical requires the support of powerful processors. We envision a system with a small touch screen built in to collect handwritten inputs and infer the written characters on chip before sending out the commands/keyboard strokes. 
 
-Therefore, high compatibility and seamless input experience are the main aspects that makes our proposed device stand out from other touchscreen solutions available in the market. 
+Therefore, high compatibility and seamless input experience on a low-cost, low-power compact device is the main aspect that makes our proposed device stand out from other touchscreen solutions available in the market. 
 
 Moreover, given the flexibility of handwritten input, our device enables fast execution of complex commands by binding a custom stroke to a sequence of instructions. Simultaneously, the device has unlimited possibilities for extended functionality. For example, performing calculations on handwritten numbers and symbols and transmitting the final results to the terminal equipment via BLE.
 
@@ -38,7 +38,7 @@ In short, such device brings a new way of electronic interface with high perform
 
 # 5. Challenges
 
-First of all, the experience of handwriting recognition input is critical, i.e., low latency, high accuracy and high efficiency. After we decided to use on-device deep learning inference for handwriting character recognition, it became pivotal to implement fast and accurate model inference while handling GUI drawing, user stroke input and BLE transmission on an ultra-low power device. Secondly, how to achieve seamless handwriting input on ultra-low power devices is to be overcome. We need a strong collaboration of deep learning models and GUI to achieve this. Likewise, data transmission via BLE is very important and needs to be user friendly, low latency and highly reliable. 
+First of all, the experience of handwriting recognition input is critical, i.e., low latency, high accuracy and high efficiency. After we decided to use on-device deep learning inference for handwriting character recognition, it became pivotal to implement fast and accurate model inference while handling GUI drawing, user stroke input and BLE transmission on an ultra-low power device. Secondly, how to achieve seamless handwriting input on ultra-low power devices is to be overcome. We need a deep collaboration of deep learning models and GUI to achieve this. Likewise, data transmission via BLE is very important and needs to be user friendly, low latency and highly reliable. 
 
 # 6. Requirement for Success
 
@@ -191,7 +191,7 @@ The proposed method in the article performance only one task, which simply outpu
 
 ## 9.c. Software
 
-VS Code, Python, Tensorflow Lite
+Arduino IDE, VS Code, Matlab, Python, Tensorflow Lite
 
 # 10. References
 
