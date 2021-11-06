@@ -179,9 +179,19 @@ The proposed method in the article performance only one task, which simply outpu
 
 ## 9.b. Datasets
 
-MNIST handwritten digit database
+[A-Z Handwritten Alphabets in .csv format](https://www.kaggle.com/sachinpatel21/az-handwritten-alphabets-in-csv-format)
+
+[MNIST handwritten digit database](http://yann.lecun.com/exdb/mnist/)
+
+[Extended MNIST](https://www.nist.gov/itl/products-and-services/emnist-dataset)
+
+[Handwritten Digits and Operators](https://www.kaggle.com/michelheusser/handwritten-digits-and-operators)
+
+[Handwritten math symbols dataset](https://www.kaggle.com/xainano/handwrittenmathsymbols)
 
 ## 9.c. Software
+
+VS Code, Python, Tensorflow Lite
 
 # 10. References
 
