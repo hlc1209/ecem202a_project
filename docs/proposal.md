@@ -105,7 +105,7 @@ The project can be partitioned into 5 mandatory tasks and 2 optional tasks:
    Reduce system latency and optimize the GUI to improve user interaction experience.
 
 6. Extended Functionality (Optional):
-   Implement some interesting functionalities, e.g., direct calculation and customized shortcuts.
+   Implement some interesting functionalities, e.g., direct calculation and custom shortcuts.
 
 7. System packaging (Optional):
    Migrate the system from breadboard to a perfboard/PCB with proper power system if time allowed. Design a 3D-printed package to minimize the size of the entire system. 
@@ -168,7 +168,18 @@ The proposed timeline is the following.
 
 ## 9.a. Papers
 
+An article closely related to our project is "Real-Time Handwritten Letters Recognition on an Embedded Computer Using ConvNets" by D. Núñez Fernández and S. Hosseini. 
+
+While this article demonstrates the basic feasibility of our project, the plan for our project goes beyond the level demonstrated in this article.
+
+In this article, the described method is implemented using the Raspberry Pi 3 which comes with 1GB RAM and 1.2 GHz main clock speed, we are aiming to reproduce a system with similar performance using Arduino Nano 33 BLE Sense which has only 256KB RAM and 64 MHz main clock speed. In this paper, authors were able to achieve an accuracy of 93.4% with a response time of 21.9 ms. Such high performance in both accuracy and response time is at the cost of a more expensive and power-consuming device. However, we notice that the machine learning models implemented in Raspberry Pi 3 are not optimized using any of the emerging model compression techniques such as pruning and quantization. Therefore, it is feasible to achieve similar performance on a less power device with a much more compressed model with reasonable cost in accuracy and response time. 
+
+The proposed method in the article performance only one task, which simply outputs the model results of a single static handwritten character, and does not illustrate the performance of handwriting recognition in real-world applications where efficiency, usability, and accuracy are extremely important. In our anticipated system, we propose to extend the functionality of the system to do deep learning-based seamless handwriting input in conjunction with capturing user's stroke input through touch screen and interacting with external device via BLE. In this context, two tasks exist simultaneously. One is the recognition of handwritten characters and the other is the BLE service as the interface between devices. Due to the sporadic nature of the first task, the scheduling scheme of these two events needs to be carefully evaluated and addressed.
+
+
 ## 9.b. Datasets
+
+MNIST handwritten digit database
 
 ## 9.c. Software
 
@@ -181,25 +192,5 @@ Saldanha, Luca Bochi and Christophe Bobda. “An embedded system for handwritten
 Carbune, Victor, et al. "Fast multi-language LSTM-based online handwriting recognition." International Journal on Document Analysis and Recognition (IJDAR) 23.2 (2020): 89-102.
 
 Feuz, Sandro, and Pedro Gonnet. “RNN-Based Handwriting Recognition in Gboard.” Google AI Blog, 7 Mar. 2019, http://ai.googleblog.com/2019/03/rnn-based-handwriting-recognition-in.html. 
-
-# Literature Analysis
-
-The key points to the success for our project are
-1. High accuracy real-time written character recognition using deep learning on a lower-cost and low-power embedded system.
-2. High-reliability low-latency HID devices emulation via BLE.
-3. Effective user interface design with continuous input and behavior customization capabilities.
-
-## Real-Time Handwritten Letters Recognition on an Embedded Computer Using ConvNets
-An article closely related to our project is "Real-Time Handwritten Letters Recognition on an Embedded Computer Using ConvNets" by D. Núñez Fernández and S. Hosseini. 
-
-While this article demonstrates the basic feasibility of our project, the plan for our project goes beyond the level demonstrated in this article.
-
-In this article, the described method is implemented using the Raspberry Pi 3 which comes with 1GB RAM and 1.2 GHz main clock speed, we are aiming to reproduce a system with similar performance using Arduino Nano 33 BLE Sense which has only 256KB RAM and 64 MHz main clock speed. In this paper, authors were able to achieve an accuracy of 93.4% with a response time of 21.9 ms. Such high performance in both accuracy and response time is at the cost of a more expensive and power-consuming device. However, we notice that the machine learning models implemented in Raspberry Pi 3 are not optimized using any of the emerging model compression techniques such as pruning and quantization. Therefore, it is feasible to achieve similar performance on a less power device with a much more compressed model with reasonable cost in accuracy and response time. 
-
-The proposed method in the article performance only one task, which simply outputs the inference of the handwritten character. Therefore, scheduling of different tasks would not be a problem in this desgin. In our anticipated system, we propose to extend the funtionality of the system to interact with external device throught BLE based on the inferenced of handwritten characters. In this context, two tasks exist simutaneously. One is the recognition of handwritten characters and the other one is the BLE service for the interface between devices. With the sporadic nature of the first task, the scheduling of these two events needs to be carefully evaluated from other sources as this article did not cover this topic.
-
-### Character recognition
-
-### Hardware 
 
 
