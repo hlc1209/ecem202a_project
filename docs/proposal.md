@@ -24,16 +24,21 @@ Nevertheless, this powerful approach relies on strong chips on Android devices a
 
 # 3. Novelty & Rationale
 
-Compatibility is the main aspect that makes our proposed device stand out from other touchscreen solutions avaiable in the market. Nowadays, handwritten recognition solutions either work on selected devices or at-least touchscreen enabled high-end electronics, e.g., car infotainment system and Apple iPad. Also, the handwritten recognition algorithm of these devices typical requires the support from powerful processors. Our envisioned systems is built-in with a small touchscreen to collect handwritten inputs and infer the written characters on chip before sending out the commands/keyboard strokes. Therefore, it would be able to accommodate any BLE enabled devices. 
+Nowadays, seamless handwritten recognition solutions either work on specialized devices or touchscreen enabled high-end electronics, e.g., BMW iDrive infotainment system and Apple iPad. Also, the handwritten recognition algorithm of these devices typical requires the support of powerful processors. We envision a system with a small touch screen built in to collect handwritten inputs and infer the written characters on chip before sending out the commands/keyboard strokes. 
 
+Therefore, high compatibility and seamless input experience are the main aspects that makes our proposed device stand out from other touchscreen solutions available in the market. 
 
-Moreover, given the flexibility of handwritten input, unlike the keyboard whose keys can only accept single commands and require a large area for complex operations, our device enables fast execution of complex commands in a very small device volume by binding a custom character to a sequence of instructions. Simultaneously, the device has unlimited expansion possibilities, for example, performing calculations on handwritten numbers and symbols and transmitting the final results to the terminal equipment via BLE.
+Moreover, given the flexibility of handwritten input, our device enables fast execution of complex commands by binding a custom stroke to a sequence of instructions. Simultaneously, the device has unlimited possibilities for functional expansion. For example, performing calculations on handwritten numbers and symbols and transmitting the final results to the terminal equipment via BLE.
 
 # 4. Potential Impact
 
-If successfully made, this device could become a new type of human interface device that is compatible to any BLE enable devices not limited to high-end electronics like laptops and tablets. For instance, it could be used to recognize and convert user's writings to keyboard strokes to replace the functionality of a keyboard upon user's desire. Similarly, it could also become an input device of speech-synthesizer for speech impaired people. In short, such device brings in a new way to interface electronics with great compatibility and low cost. 
+If successfully made, this device could become a new type of human interface device that is compatible to any BLE enable devices not limited to high-end electronics like laptops and tablets. For instance, it could be used to recognize and convert user's writings to keyboard strokes to replace the functionality of a keyboard upon user's desire. Similarly, it could also become an input device of speech-synthesizer for speech impaired people. 
+
+In short, such device brings a new way of electronic interface with high performance, great compatibility and low cost. 
 
 # 5. Challenges
+
+
 
 # 6. Requirement for Success
 
