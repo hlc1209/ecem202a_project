@@ -27,6 +27,15 @@ This section should cover the following items:
 
 # 3. Technical Approach
 
+## Character recognition using Deep Learning
+
+For the handwritten character recognition, the traditional method is to use OCR algorithms. However, for the Arduino Nano 33 BLE Sense we are using, most OCR algorithms require well over 1MB of flash space, and demand more computational capacity than a microcontroller can provide for real-time processing.
+
+To develop real-time character recognition algorithms that can be used on microcontrollers, we use deep learning to build and train a model that can achieve about 85% accuracy on 0-9 and a-z handwritten characters. To make real-time processing possible on the Arduino Nano 33, we utilize a variety of  optimization skills to build a tiny convolutional neural network, which has only 50k parameters in total, and the inference time on the device is ~100ms.
+
+
+### Dataset & Data Preprocessing
+
 # 4. Evaluation and Results
 
 # 5. Discussion and Conclusions
