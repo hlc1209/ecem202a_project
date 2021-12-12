@@ -27,7 +27,7 @@ This section should cover the following items:
 
 # 3. Technical Approach
 
-## Operation Logic
+## 3.1 Operation Logic
 The User Interface of the device is shown in figure below. The black square area allows user to write/draw characters with fingers or stylus pen. The left panel is divided into 5 parts. The first 3 buttons on the top are the selection buttons used in slow mode. The 4th button from the top is used to switch between fast and slow mode. The red backspace button is used to delete text or clear screen without sending the keyboard stroke in slow mode. 
 
 <p align="middle">
@@ -44,10 +44,10 @@ In slow mode, the written character will not be sent out instantly after the inf
     <img src="media/slow_mode.jpg" width="60%"/>
 </p>
 
-## Bluetooth Low Energy
+## 3.2 Bluetooth Low Energy
 In contrast to Bluetooth classic, BLE is designed for significantly low power consumption, which is suitable for our application. Keyboard service is a reserved service in BLE, which eliminates the burden of writing custom service to send keyboar strokes. The infered character will be written as BLE characteristic to BLE keyboard service to achieve the wireless keyboard functionality.
 
-## Image Resizing
+## 3.3 Image Resizing
 The size of black canvas that records user's drawing is 240-by-240, which is 57.6k input parameters in total. Indeed, high-resolution image typically enables better prediction accuracy thorugh neural network. However, considering the computing resource provided by Arduino Nano 33 BLE Sense, it is necessary to reduce the model size to deploy the model to Arduino Nano 33 BLE Sense with real-time inference. Also, pixels are represented by truth values.
 
 For fast resizing, we use box sampling to sum the pixel values in a box and skip the rest of the values once the sum is greater than 0. During tesing, we realized the recognition accuracy is affected by the thickness of strokes. Therefore, we artificially increase the stroke thickness by 3 times when performing downsizing. A comparison of writting on screen and the resized image is shown in figure below.
@@ -56,7 +56,7 @@ For fast resizing, we use box sampling to sum the pixel values in a box and skip
     <img src="media/resize.PNG" width="90%"/>
 </p>
 
-## Printed Circuit Board Design
+## 3.4 Printed Circuit Board Design
 The system is first built on breadboard, shown in the figure below. After the basic functionality is verified, we ported the design to a 2-layer PCB to eliminate the jumper wires and improve mobility. We use easyEDA to PCB drawing for the ease of PCB ordering. The PCB drawing and finished PCB are shown in the figures below, respectively.
 <p align="middle">
     <img src="media/bboard.jpg" width="80%"/>
@@ -68,7 +68,7 @@ The system is first built on breadboard, shown in the figure below. After the ba
 
 In our PCB design, 2 3.7V Lipo batteries are used as power source. 2 3.7V lipo batteries are placed in series to supply 7.4V voltage to Arduino Nano 33 BLE Sense. Our chosen touchscreen Adafruit ILI9341 has a built-in LDO and accepts input voltage from 2.7V to 5.5V. Since Arduino Nano 33 BLE Sense has a 3.3V pin, we decided to add 2 capacitor footprints where 1 footprint connects 3.3V to the input of touchscreen and the other one connects 3.7V (voltage of one of the battery) to test which supply voltage is more stable. 
 
-## Firmware
+## 3.5 Firmware
 The workflow of the firmware can be represented in the diagram below. There are two threads operating in parallel and 1 semaphore to help with the timing of two threads. One thread controls the operation of BLE, mainly the write characteristic command and the other thread controls the touchscreen as well as the inference of user's input. BLE thread releases the semaphore when it is done writing characteristic and touchscreen thread realses the semaphore when inference is done. 
 
 <p align="middle">
@@ -81,14 +81,14 @@ Many characters are usually written in more than one consective stroke such as '
 
 
 
-## 3D-printed Model for packaging
+## 3.6 3D-printed Model for packaging
 3D models shown in tje figure below are drawn in Solidworks for packaging purpose. However, due to the significant delay of shipping, we have not received the 3D models yet. Thus, we are not able to verify the mechanical design.
 
 <p align="middle">
     <img src="media/3D_model.PNG" width="80%"/>
 </p>
 
-## Character recognition using Deep Learning
+## 3.7 Character recognition using Deep Learning
 
 For the handwritten character recognition, the traditional method is to use OCR algorithms. However, for the Arduino Nano 33 BLE Sense we are using, most OCR algorithms require well over 1MB of flash space, and demand more computational capacity than a microcontroller can provide for real-time processing.
 
@@ -189,7 +189,7 @@ For the EMNIST dataset, we achieved a test accuracy of 83.71%. Considering the 8
     <img src="media/confusion_matrix_emnist.png" width="100%"/>
 </p>
 
-A detailed analysis of the confusion matrix is shown in the[Discussion](#limitation--error-analysis) section.
+A detailed analysis of the confusion matrix is shown in the [Discussion](#51-error-analysis) section.
 
 ## 4.2 Real world evaluation
 After the system is migrate from breadboard to PCB, 2 demonstrations are made for fast mode and slow mode. Refer to the links below.
@@ -198,9 +198,9 @@ After the system is migrate from breadboard to PCB, 2 demonstrations are made fo
     <img src="media/demo_screenshot.jpg" width="80%"/>
 </p>
 
-[Demo Video for Fast Mode](https://github.com/hlc1209/ecem202a_project/blob/mainmedia/demo_fast.mp4)
+[Demo Video for Fast Mode](https://github.com/hlc1209/ecem202a_project/blob/main/media/demo_fast.mp4)
 
-[Demo Video for Slow Mode](https://github.com/hlc1209/ecem202a_project/blob/mainmedia/demo_slow.mp4)
+[Demo Video for Slow Mode](https://github.com/hlc1209/ecem202a_project/blob/main/media/demo_slow.mp4)
 
 For evaluations, the system is tested with 2 3.7V LiPo battery as the power source shown in the figure below. Then, the recognition latency and recognition accuracy are tested. The recognition accuracy is tested under fast mode and slow mode separately. In the test for slow mode, we count the trial as success if the written character shows up as 1 of the 3 selections on the left panel. In the test for fast mode, when calculating accuracy, only if the highest scoring character in the output matches the input is considered successful. In testing for accuracy, we handwrite each character (0 to 9, a to z, and A to Z) for 5 times and calculate the average accuracy over all characters. The accuracy for fast mode is 80.6% and the accuracy for slow mode is 95.4%. 
 
@@ -227,7 +227,7 @@ In lantency evaluation, we record the time spent on resizing the image until the
 
 
 
-## Error Analysis 
+## 5.1 Error Analysis 
 Due to the limitation of the performance of the Arduino Nano 33 BLE, as well as the size of the available touchscreen, we choose to allow only one character on the screen at a time, rather than writing a whole sentence. 
 
 This compromise is not only for the convenience of the user, but also for the efficiency of the system. However, it also brings harmful effects to the recognition accuracy. As we can see in the confusion matrix shown below, there are some obvious errors.
@@ -246,7 +246,7 @@ It is almost impossible to deal with these errors as long as we only allow one c
 
 Fortunately, we developed the slow mode that allows the user to choose top 3 characters. The accuracy of the system is improved to 95.4% in the slow mode and in most cases, the user can get the correct character without having to write it again.
 
-## Future Work
+## 5.2 Future Work
 First, the clock speed of SPI is locked at 1 Mhz on Arduino Nano 33 BLE because of imperfection in Arduino's mbed core, which somewhat degrades the performance of our system. With a faster SPI clock speed, we can achieve much smoothier visual effect and drawing experience. Currently, due to the limit of SPI clock speed, Bresenham's algorithm is used to estimated the trajectory. Therefore, zigzaging drawings may occur when drawing curves. The figure below is a common example. Also, when drawing large amount of pixels (for example, startup, print top-3-score characters), it is obvious that pixels are drawn lines by lines. The limitation of SPI speed of nRF52840 is 32 Mhz. We have rooms to optimize the user experience in terms of the screen effect. 
 
 <p align="middle">
