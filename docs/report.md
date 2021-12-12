@@ -45,7 +45,7 @@ In slow mode, the written character will not be sent out instantly after the inf
 </p>
 
 ## Bluetooth Low Energy
-In contrast to Bluetooth classic, BLE is designed for significantly low power consumption, which is suitable for our application.
+In contrast to Bluetooth classic, BLE is designed for significantly low power consumption, which is suitable for our application. Keyboard service is a reserved service in BLE, which eliminates the burden of writing custom service to send keyboar strokes. The infered character will be written as BLE characteristic to BLE keyboard service to achieve the wireless keyboard functionality.
 
 ## Image Resizing
 The size of black canvas that records user's drawing is 240-by-240, which is 57.6k input parameters in total. Indeed, high-resolution image typically enables better prediction accuracy thorugh neural network. However, considering the computing resource provided by Arduino Nano 33 BLE Sense, it is necessary to reduce the model size to deploy the model to Arduino Nano 33 BLE Sense with real-time inference. Also, pixels are represented by truth values.
