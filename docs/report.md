@@ -49,18 +49,22 @@ To address the issues listed above, as well as to improve the performance of the
 
 1. Rescale the images to the float datatype of 0.0~1.0.
 2. Randomly rotate the image within an angle from -15 degree to 15 degree. This is to solve the first problem mentioned above.
-3. Randomly resize the original 28\*28 image to a new square image of size from 20\*20 to 36\*36. Therefore the training characters will have different size. This is to solve the second problem mentioned above.
+3. Randomly resize the original 28\*28 image to a new square image of size from 16\*16 to 34\*34. Therefore the training characters will have different size. This is to solve the second problem mentioned above.
 4. Crop the resized image into a square image of size 32\*32 with random cropping positions. Thus, the training characters will be positioned at different position. This is to solve the third problem mentioned above.
 5. Binarize image to 1-bit image. The threshold we use is 0.3. This will solve the final problem listed above.
 
 
 The figures below are some of the training images after pre-processing and augmentation.
 
+![Example of Training Inputs of Character e](media/input_e.png)
 
+![Example of Training Inputs of Character H](media/input_H.png)
 
 
 ### Design Model Architecture
+Due to the limitation of Arduino Nano 33 BLE, there are strict limitations on model architecture. The following requirements should be met for the success of this project:
 
+1. The inference time should be equal or less than 120ms.
 
 # 4. Evaluation and Results
 
