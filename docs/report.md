@@ -141,12 +141,19 @@ This perfectly solves the bug, without any loss of performance during training o
 # 4. Evaluation and Results
 ## 4.2 Evaluation on the Test Set
 
-We evaluate the model on two dataset: EMNIST and MNIST.
+We evaluate the model on two datasets: EMNIST and MNIST.
 
-For the MNIST dataset, we achieved a test accuracy of 95.38%. Considering the model is trained on the EMNIST dataset, we can say that the model has a good generalization capability. The confusion matrix is shown below.
+For the MNIST dataset, we achieved a test accuracy of 95.38%. Considering the model is trained on the EMNIST dataset, we can say that the model has good generalization capability. The confusion matrix is shown below.
 <p align="middle">
     <img src="media/confusion_matrix_mnist.png" width="100%"/>
 </p>
+
+For the EMNIST dataset, we achieved a test accuracy of 83.71%. Considering the 83.64% evaluation accuracy during training, quantization does not bring performance degradation. The confusion matrix is shown below.
+<p align="middle">
+    <img src="media/confusion_matrix_emnist.png" width="100%"/>
+</p>
+
+
 
 ## 4.1 Real world evaluation
 After the system is migrate from breadboard to PCB, 2 demonstrations are made for fast mode and slow mode. Refer to the links below.
