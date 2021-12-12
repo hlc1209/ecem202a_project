@@ -33,7 +33,7 @@ The User Interface of the device is shown in figure 1. The black square area all
 ### Fast Mode 
 
 ### Slow Mode
-In slow mode, 
+In slow mode, the written character will not be sent out instantly after the inference is done. Rather, the characters with the top 3 scores from the inference will be printed in the blue panel, allowing users to confirm and select the correct character to send out as keyboard stroke. If none of the infered character matches user's input, the user can simply tap the 'backspace' button to clear the screen and rewrite the character.
 
 
 ## Character recognition using Deep Learning
