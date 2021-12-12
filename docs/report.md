@@ -31,7 +31,7 @@ This section should cover the following items:
 The User Interface of the device is shown in figure below. The black square area allows user to write/draw characters with fingers or stylus pen. The left panel is divided into 5 parts. The first 3 buttons on the top are the selection buttons used in slow mode. The 4th button from the top is used to switch between fast and slow mode. The red backspace button is used to delete text or clear screen without sending the keyboard stroke in slow mode. 
 
 <p align="middle">
-    <img src="media/UI.jpg" width="500px"/>
+    <img src="media/UI.jpg" width="60%"/>
 </p>
 
 ### Fast Mode 
@@ -41,7 +41,7 @@ In fast mode, after the user is done writing one character, the character with t
 In slow mode, the written character will not be sent out instantly after the inference is done. Rather, the characters with the top 3 scores from the inference will be printed in the blue panel, allowing users to confirm and select the correct character to send out as keyboard stroke. If none of the infered character matches user's input, the user can simply tap the 'backspace' button to clear the screen and rewrite the character. With such design, the input speed is slower in exchange for more robust inference.
 
 <p align="middle">
-    <img src="media/slow_mode.jpg" width="500px"/>
+    <img src="media/slow_mode.jpg" width="60%"/>
 </p>
 
 ## Bluetooth Low Energy
@@ -53,17 +53,17 @@ The size of black canvas that records user's drawing is 240-by-240, which is 57.
 For fast resizing, we use box sampling to sum the pixel values in a box and skip the rest of the values once the sum is greater than 0. During tesing, we realized the recognition accuracy is affected by the thickness of strokes. Therefore, we artificially increase the stroke thickness by 3 times when performing downsizing. A comparison of writting on screen and the resized image is shown in figure below.
 
 <p align="middle">
-    <img src="media/resize.PNG" width="70%"/>
+    <img src="media/resize.PNG" width="90%"/>
 </p>
 
 ## Printed Circuit Board Design
 The system is first built on breadboard, shown in the figure below. After the basic functionality is verified, we ported the design to a 2-layer PCB to eliminate the jumper wires and improve mobility. We use easyEDA to PCB drawing for the ease of PCB ordering. The PCB drawing and finished PCB are shown in the figures below, respectively.
 <p align="middle">
-    <img src="media/bboard.jpg" width="50%"/>
+    <img src="media/bboard.jpg" width="80%"/>
 </p>
 
 <p align="middle">
-    <img src="media/PCB.PNG" width="50%"/>
+    <img src="media/PCB.PNG" width="80%"/>
 </p>
 
 In our PCB design, 2 3.7V Lipo batteries are used as power source. 2 3.7V lipo batteries are placed in series to supply 7.4V voltage to Arduino Nano 33 BLE Sense. Our chosen touchscreen Adafruit ILI9341 has a built-in LDO and accepts input voltage from 2.7V to 5.5V. Since Arduino Nano 33 BLE Sense has a 3.3V pin, we decided to add 2 capacitor footprints where 1 footprint connects 3.3V to the input of touchscreen and the other one connects 3.7V (voltage of one of the battery) to test which supply voltage is more stable. 
@@ -72,7 +72,7 @@ In our PCB design, 2 3.7V Lipo batteries are used as power source. 2 3.7V lipo b
 The workflow of the firmware can be represented in the diagram below. There are two threads operating in parallel and 1 semaphore to help with the timing of two threads. One thread controls the operation of BLE, mainly the write characteristic command and the other thread controls the touchscreen as well as the inference of user's input. BLE thread releases the semaphore when it is done writing characteristic and touchscreen thread realses the semaphore when inference is done. 
 
 <p align="middle">
-    <img src="media/RTOS.PNG" width="70%"/>
+    <img src="media/RTOS.PNG" width="90%"/>
 </p>
 
 Debouncing is cruicial for touchscreen applications. We allow 30ms between each touch on screen. When the user is drawing consective lines, we record the coordinate of start and end point and draw a straight line between these two points as the approximate trajectory. The straight line is estimated using Bresenham's algorithm. Doing so also alleviate the issue of insufficient SPI clock speed since the SPI clock speed is locked at 1 Mhz on Arduino Nano 33 BLE Sense. This issue has not been resolved. Reports of this issue can be found [here](https://forum.arduino.cc/t/nano-33-ble-spi-speed-not-changing/656881) and [here](https://issueexplorer.com/issue/arduino/ArduinoCore-mbed/270).
@@ -85,7 +85,7 @@ Many characters are usually written in more than one consective stroke such as '
 3D models shown in tje figure below are drawn in Solidworks for packaging purpose. However, due to the significant delay of shipping, we have not received the 3D models yet. Thus, we are not able to verify the mechanical design.
 
 <p align="middle">
-    <img src="media/3D_model.PNG" width="50%"/>
+    <img src="media/3D_model.PNG" width="80%"/>
 </p>
 
 ## Character recognition using Deep Learning
@@ -198,9 +198,9 @@ After the system is migrate from breadboard to PCB, 2 demonstrations are made fo
     <img src="media/demo_screenshot.jpg" width="80%"/>
 </p>
 
-[Demo Video for Fast Mode](media/demo_fast.mp4)
+[Demo Video for Fast Mode](https://github.com/hlc1209/ecem202a_project/blob/mainmedia/demo_fast.mp4)
 
-[Demo Video for Slow Mode](media/demo_slow.mp4)
+[Demo Video for Slow Mode](https://github.com/hlc1209/ecem202a_project/blob/mainmedia/demo_slow.mp4)
 
 For evaluations, the system is tested with 2 3.7V LiPo battery as the power source shown in the figure below. Then, the recognition latency and recognition accuracy are tested. The recognition accuracy is tested under fast mode and slow mode separately. In the test for slow mode, we count the trial as success if the written character shows up as 1 of the 3 selections on the left panel. In the test for fast mode, when calculating accuracy, only if the highest scoring character in the output matches the input is considered successful. In testing for accuracy, we handwrite each character (0 to 9, a to z, and A to Z) for 5 times and calculate the average accuracy over all characters. The accuracy for fast mode is 80.6% and the accuracy for slow mode is 95.4%. 
 
@@ -250,14 +250,14 @@ Fortunately, we developed the slow mode that allows the user to choose top 3 cha
 First, the clock speed of SPI is locked at 1 Mhz on Arduino Nano 33 BLE because of imperfection in Arduino's mbed core, which somewhat degrades the performance of our system. With a faster SPI clock speed, we can achieve much smoothier visual effect and drawing experience. Currently, due to the limit of SPI clock speed, Bresenham's algorithm is used to estimated the trajectory. Therefore, zigzaging drawings may occur when drawing curves. The figure below is a common example. Also, when drawing large amount of pixels (for example, startup, print top-3-score characters), it is obvious that pixels are drawn lines by lines. The limitation of SPI speed of nRF52840 is 32 Mhz. We have rooms to optimize the user experience in terms of the screen effect. 
 
 <p align="middle">
-    <img src="media/zigzag.jpg" width="50%"/>
+    <img src="media/zigzag.jpg" width="60%"/>
 </p>
 
 Second, electrical and mechanical designs need to be optimized. For electrical designs, we consider using a boost converter to provide 5V as the input voltage to the touchscreen. Currently, 3.7V which is the voltage provided by one of the battery is directly connected to the input of the touchscreen. We notice that the touchscreen dims occasionally due to the lower voltage supply. We also need to design switch for power on and off the device, as well as charging mechanism of the battery without disassembling the system. For mechanical design, we consider optimizing the layout of the PCB for the convenience for future development. As shown in the figure below, the USB port for development is blocked when the touchscreen is in place. Also, the 3D models for packaging need to be modified to incorporate the power switch and charging port.
 
 
 <p align="middle">
-    <img src="media/usb_circle.jpg" width="50%"/>
+    <img src="media/usb_circle.jpg" width="60%"/>
 </p>
 
 Third, more evaluation of accuracy need to be done for different user, especially the ones that have no prior knowledge of the system. As developers are more familiar with the training dataset, it is very likely that we are biased to write characters that are more likely to be captured by the model, thus, overestimate the capability of the system. Ideally, more trials with different users need to be performed in the future to validate the performance.
