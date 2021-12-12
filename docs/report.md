@@ -270,25 +270,39 @@ A detailed analysis of the confusion matrix is shown in the [Discussion](#51-err
 ## 4.2 Real world evaluation
 After the system is migrate from breadboard to PCB, 2 demonstrations are made for fast mode and slow mode. Refer to the links below.
 
+#### Demo Video for Fast Mode
 <p align="middle">
-    <img src="media/demo_screenshot.jpg" width="80%"/>
+<iframe width="80%" height="300"
+src="https://www.youtube.com/embed/TnqZWla2pq8" 
+frameborder="0" 
+allow="accelerometer; encrypted-media; picture-in-picture" 
+allowfullscreen></iframe>
 </p>
 
-* [Demo Video for Fast Mode](https://github.com/hlc1209/ecem202a_project/raw/main/docs/media/fast_demo.mp4)
+* [Video File for Fast Mode](https://github.com/hlc1209/ecem202a_project/raw/main/docs/media/fast_demo.mp4)
 
-* [Demo Video for Slow Mode](https://github.com/hlc1209/ecem202a_project/raw/main/docs/media/slow_demo.mp4)
+#### Demo Video for Slow Mode
+<p align="middle">
+<iframe width="80%" height="300"
+src="https://www.youtube.com/embed/La2jUmT9tKs" 
+frameborder="0" 
+allow="accelerometer; encrypted-media; picture-in-picture" 
+allowfullscreen></iframe>
+</p>
+
+* [Video File for Slow Mode](https://github.com/hlc1209/ecem202a_project/raw/main/docs/media/slow_demo.mp4)
 
 For evaluations, the system is tested with 2 3.7V LiPo battery as the power source shown in the figure below. Then, the recognition latency and recognition accuracy are tested. The recognition accuracy is tested under fast mode and slow mode separately. In the test for slow mode, we count the trial as success if the written character shows up as 1 of the 3 selections on the left panel. In the test for fast mode, when calculating accuracy, only if the highest scoring character in the output matches the input is considered successful. In testing for accuracy, we handwrite each character (0 to 9, a to z, and A to Z) for 5 times and calculate the average accuracy over all characters. The accuracy for fast mode is 80.6% and the accuracy for slow mode is 95.4%. 
 
 Refer to the following excel files for detailed testing results:
 
 
-* [Test Results for Fast Mode](https://github.com/hlc1209/ecem202a_project/blob/main/data/testing_fast_mode.xlsx)
+* [Test Results for Fast Mode](https://github.com/hlc1209/ecem202a_project/raw/main/data/testing_fast_mode.xlsx)
 
-* [Test Results for Slow Mode](https://github.com/hlc1209/ecem202a_project/blob/main/data/testing_slow_mode.xlsx)
+* [Test Results for Slow Mode](https://github.com/hlc1209/ecem202a_project/raw/main/data/testing_slow_mode.xlsx)
 
 ## 4.3 Latency Analysis
-In latency evaluation, we record the time spent on resizing the image until the inferred character gets sent out through BLE in fast mode. The latency is printed in the serial monitor and we calculate the average latency from 50 trials. The recorded data can be found [here](https://github.com/hlc1209/ecem202a_project/blob/main/data/testing_latency.xlsx). The average latency over 50 trials is 208.1 ms. We've reached the preset goal from proposal.
+In latency evaluation, we record the time spent on resizing the image until the inferred character gets sent out through BLE in fast mode. The latency is printed in the serial monitor and we calculate the average latency from 50 trials. The recorded data can be found [here](https://github.com/hlc1209/ecem202a_project/raw/main/data/testing_latency.xlsx). The average latency over 50 trials is 208.1 ms. We've reached the preset goal from proposal.
 
 <p align="middle">
     <img src="media/latency.PNG" width="40%"/>

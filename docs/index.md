@@ -16,12 +16,13 @@ In this project, we build a low-cost, small-size and low-power real-time handwri
 # Required Submissions
 
 * [Proposal](proposal)
-* [Midterm Checkpoint Presentation Slides](https://github.com/hlc1209/ecem202a_project/blob/main/docs/M202A%20Midterm%20Presentation.pptx)
-* [Final Presentation Slides](https://github.com/hlc1209/ecem202a_project/blob/main/docs/M202A%20Final%20Presentation.pptx)
+* [Midterm Checkpoint Presentation Slides](https://github.com/hlc1209/ecem202a_project/raw/main/docs/M202A%20Midterm%20Presentation.pptx)
+* [Final Presentation Slides](https://github.com/hlc1209/ecem202a_project/raw/main/docs/M202A%20Final%20Presentation.pptx)
 * [Final Report](report)
 
 # Highlights
 
+#### Demo Video for Fast Mode
 <p align="middle">
 <iframe width="80%" height="300"
 src="https://www.youtube.com/embed/TnqZWla2pq8" 
@@ -30,8 +31,9 @@ allow="accelerometer; encrypted-media; picture-in-picture"
 allowfullscreen></iframe>
 </p>
 
-* [Demo Video for Fast Mode](https://github.com/hlc1209/ecem202a_project/raw/main/docs/media/fast_demo.mp4)
+* [Video File for Fast Mode](https://github.com/hlc1209/ecem202a_project/raw/main/docs/media/fast_demo.mp4)
 
+#### Demo Video for Slow Mode
 <p align="middle">
 <iframe width="80%" height="300"
 src="https://www.youtube.com/embed/La2jUmT9tKs" 
@@ -40,4 +42,4 @@ allow="accelerometer; encrypted-media; picture-in-picture"
 allowfullscreen></iframe>
 </p>
 
-* [Demo Video for Slow Mode](https://github.com/hlc1209/ecem202a_project/raw/main/docs/media/slow_demo.mp4)
+* [Video File for Slow Mode](https://github.com/hlc1209/ecem202a_project/raw/main/docs/media/slow_demo.mp4)
