@@ -41,16 +41,20 @@ The dataset we used is Extended MNIST (EMNIST), which contains 814,255 character
 We observed that when user draws strokes on the touch screen, there are four things that will cause a severe performance degradation in the real world: 
 
 1. Handwritten characters have an arbitrary angle with respect to the touch screen. However, the dataset we used does not consider this situation.
-2. Handwritten characters have arbitrary size relative to the touch screen, but the training characters from the dataset all have the same size.
-3. Handwritten characters have arbitrary size relative to the touch screen, but the training characters from the dataset all have the same size.
+2. Handwritten characters have an arbitrary size relative to the touch screen, but the training characters from the dataset all have the same size.
+3. Handwritten characters have an arbitrary position relative to the touch screen, but the training characters in the dataset are all located in the center.
 4. The strokes we obtain from the touch screen are a series of sampled points, which we then convert into a 1-bit character image for the deep learning model's input. But, the characters images in the dataset are all 8-bit grayscale. 
 
 To address the issues listed above, as well as to improve the performance of the model in the real world, we make use of data augmentation. The preprocessing and augmentation sequence we used are:
 
-1. Rescale the images to 0.0~1.0 float datatype
+1. Rescale the images to the float datatype of 0.0~1.0.
 2. Randomly rotate the image within an angle from -15 degree to 15 degree. This is to solve the first problem mentioned above.
-3. Randomly resize the original 28*28 image to 
+3. Randomly resize the original 28\*28 image to a new square image of size from 20\*20 to 36\*36. Therefore the training characters will have different size. This is to solve the second problem mentioned above.
+4. Crop the resized image into a square image of size 32\*32 with random cropping positions. Thus, the training characters will be positioned at different position. This is to solve the third problem mentioned above.
+5. Binarize image to 1-bit image. The threshold we use is 0.3. This will solve the final problem listed above.
 
+
+The figures below are some of the training images after pre-processing and augmentation.
 
 
 
