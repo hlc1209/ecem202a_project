@@ -93,6 +93,12 @@ The final model architecture has 11,160 parameters in total. The accuracy on the
 
 ### Implementation & Optimization
 
+We use Tensorflow to implement and train the model and then use Tensorflow Lite Micro to quantize and convert the model to C header file.
+
+For the quantization part, we quantize not only the weights and biases but also the input and output of the model. Both are quantized to 8-bit.
+
+When quantizing and converting the model, we face a bug in Tensorflow Lite Micro. The bug is that the reshape layer cannot be quantized correctly. More specifically, the output of the reshape layer will has 32-bit integer datatype, which is not supported by Arduino Tensorflow Lite Micro. The wrongly converted model is shown below.
+
 
 
 # 4. Evaluation and Results
