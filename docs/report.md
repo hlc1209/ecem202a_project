@@ -154,7 +154,7 @@ After the system is migrate from breadboard to PCB, 2 demonstrations are made fo
 Demo Video for Fast Mode:
 Demo Video for Slow Mode:
 
-For evaluations, the system is tested with 2 3.7V LiPo battery as the power source shown in figure 4 below. Then, the recognition latency and recognition accuracy are tested. The recognition accuracy is tested under fast mode and slow mode separately. In the testing for slow mode, we count the trial as success if the written character shows up as 1 of the 3 selections on the left panel. In the testing for fast mode, ony the character with the highest score in inference is considered when calculating accuracy. In testing for accuracy, we handwrite each character (0 to 9, a to z, and A to Z) for 5 times and calculate the average accuracy over all characters. The accuracy for fast mode is 80.6% and the accuracy for slow mode is 95.4%. 
+For evaluations, the system is tested with 2 3.7V LiPo battery as the power source shown in figure 4 below. Then, the recognition latency and recognition accuracy are tested. The recognition accuracy is tested under fast mode and slow mode separately. In the test for slow mode, we count the trial as success if the written character shows up as 1 of the 3 selections on the left panel. In the test for fast mode, when calculating accuracy, only if the highest scoring character in the output matches the input is considered successful. In testing for accuracy, we handwrite each character (0 to 9, a to z, and A to Z) for 5 times and calculate the average accuracy over all characters. The accuracy for fast mode is 80.6% and the accuracy for slow mode is 95.4%. 
 
 <p align="middle">
     <img src="media/system_setup.jpg" width="100%"/>
