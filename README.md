@@ -1,4 +1,4 @@
-# ECEM202A Pproject
+# ECEM202A Project
 ## BLE-enabled HID based on Edge Inference Accelerated Handwriting Recognition
 This is repository template for UCLA ECEM202A / CSM213A projects.
 
