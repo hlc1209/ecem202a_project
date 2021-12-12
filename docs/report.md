@@ -9,7 +9,7 @@
 
 # Abstract
 
-Provide a brief overview of the project objhectives, approach, and results.
+Provide a brief overview of the project objectives, approach, and results.
 
 # 1. Introduction
 
@@ -47,7 +47,7 @@ To develop real-time character recognition algorithms that can be used on microc
 
 The dataset we used is Extended MNIST (EMNIST), which contains 814,255 characters in 62 classes. Compared to the MNIST dataset, it's about 12 times larger and includes a-z characters. Due to its huge scale, we didn't use other datasets to train the model.
 
-We observed that when user draws strokes on the touch screen, there are four things that will cause a severe performance degradation in the real world: 
+We observed that there are four things that will cause a severe performance degradation in the real world related to the dataset: 
 
 1. Handwritten characters have an arbitrary angle with respect to the touch screen. However, the dataset we used does not consider this situation.
 2. Handwritten characters have an arbitrary size relative to the touch screen, but the training characters from the dataset all have the same size.
@@ -96,6 +96,12 @@ To achieve the best performance in a tiny model, I use multiple convolutional la
 
 Another idea from recent research is that instead of using a flatten layer and 2 fully connected layers at the top of the network, I use one GlobalAveragePooling layer and an output FC layer. This setting has the best performance and can save a lot of parameters. I also tried FC+FC, GlobalMaxPooling+FC and GlobalMaxPooling alone, but GlobalAveragePooling+FC is the best.
 
+We have tried many activation functions, such as ReLU, PReLU, ELU and other variants. However, PReLU, ELU and other variations cannot beat ReLU in our project.
+
+The final model architecture has 11,160 parameters in total. The accuracy on the training set is 81.59% and on the test set is 83.64%.
+
+### Implementation & Optimization
+
 
 
 # 4. Evaluation and Results
@@ -104,7 +110,7 @@ After the system is migrate from breadboard to PCB, 2 demonstrations are made fo
 Demo Video for Fast Mode:
 Demo Video for Slow Mode:
 
-For evaluations, the system is tested with 2 3.7V Lipo battery as the power source shown in figure 4 below. Then, the recognition latency and recogntion accuracy are tested. The recognition accuracy is tested under fast mode and slow mode separately. In the testing for slow mode, we count the trial as success if the written character shows up as 1 of the 3 selections on the left panel. In the testing for fast mode, only trials where the written character is written on central device are counted successful trials. In testing for accuracy, we handwrite each character (0 to 9, a to z, and A to Z) for 5 times and calculate the average accuracy over all characters. The accuracy for fast mode is 80.6% and the accuracy for slow mode is 95.4%. 
+For evaluations, the system is tested with 2 3.7V LiPo battery as the power source shown in figure 4 below. Then, the recognition latency and recognition accuracy are tested. The recognition accuracy is tested under fast mode and slow mode separately. In the testing for slow mode, we count the trial as success if the written character shows up as 1 of the 3 selections on the left panel. In the testing for fast mode, only trials where the written character is written on central device are counted successful trials. In testing for accuracy, we handwrite each character (0 to 9, a to z, and A to Z) for 5 times and calculate the average accuracy over all characters. The accuracy for fast mode is 80.6% and the accuracy for slow mode is 95.4%. 
 
 <p>
     <img src="media/system_setup.jpg" width=500px>
