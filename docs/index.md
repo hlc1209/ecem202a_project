@@ -23,7 +23,7 @@ In this project, we build a low-cost, small-size and low-power real-time handwri
 # Highlights
 
 <iframe width="80%"
-src="https://youtu.be/TnqZWla2pq8" 
+src="https://www.youtube.com/embed/TnqZWla2pq8" 
 frameborder="0" 
 allow="accelerometer; encrypted-media; picture-in-picture" 
 allowfullscreen></iframe>
@@ -32,7 +32,7 @@ allowfullscreen></iframe>
 
 
 <iframe width="80%"
-src="https://youtu.be/La2jUmT9tKs" 
+src="https://www.youtube.com/embed/La2jUmT9tKs" 
 frameborder="0" 
 allow="accelerometer; encrypted-media; picture-in-picture" 
 allowfullscreen></iframe>
