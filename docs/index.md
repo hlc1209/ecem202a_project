@@ -13,5 +13,15 @@ In this project, we build a low-cost, small-size and low-power real-time handwri
 
 * [Proposal](proposal)
 * [Midterm Checkpoint Presentation Slides](https://github.com/hlc1209/ecem202a_project/blob/main/docs/M202A%20Midterm%20Presentation.pptx)
-* [Final Presentation Slides](http://)
+* [Final Presentation Slides](https://github.com/hlc1209/ecem202a_project/blob/main/docs/M202A%20Final%20Presentation.pptx)
 * [Final Report](report)
+
+# Highlights
+
+<p align="middle">
+    <img src="media/demo_screenshot.jpg" width="80%"/>
+</p>
+
+[Demo Video for Fast Mode](https://github.com/hlc1209/ecem202a_project/raw/main/docs/media/fast_demo.mp4)
+
+[Demo Video for Slow Mode](https://github.com/hlc1209/ecem202a_project/raw/main/docs/media/slow_demo.mp4)
