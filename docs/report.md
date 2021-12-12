@@ -10,7 +10,7 @@
 
 # Abstract
 
-In this project, we build a low-cost, small-size and low-power real-time handwritten character recognition system based on Arduino Nano 33 BLE Sense with a touch screen, which is capable of offering fluent handwriting input experience in real-time and send recognized characters to BLE-enabled terminal equipment as keyboard strokes. Inference of character recognition deep learning model is done on the Arduino Nano 33 BLE Sense to enable the compatibility to any BLE-enabled devices. We achieve a accuracy of 80.6% in fast mode with a latency of 200ms and 90.5% in slow mode.
+In this project, we build a low-cost, small-size and low-power real-time handwritten character recognition system based on Arduino Nano 33 BLE Sense with a touch screen, which is capable of offering fluent handwriting input experience in real-time and send recognized characters to BLE-enabled terminal equipment as keyboard strokes. Inference of character recognition deep learning model is done on the Arduino Nano 33 BLE Sense to enable the compatibility to any BLE-enabled devices. We achieve a accuracy of 80.6% in fast mode with a latency of 200ms and 90.5% in slow mode. In addition, we designed the PCB and 3D printed case for the device to reduce the use of flying wires and to make the device integrated and portable.
 
 <p align="middle">
     <img src="media/system_setup.jpg" width="80%"/>
@@ -23,7 +23,7 @@ Designers have long recognized that handwriting with a pen offers more fluidity 
 
 ![](media/ipad_scribble.jpg)
 
-First, the cost of handwritten-enabled devices with a smooth experience is high. Currently, multiple solutions exist for scribble digitization. For example, Microsoft Surface Pro has a built-in Wacom-made digitier layer and a pen designed for it to achieve such functionality. Apple iPad introduced the scribble feature in iOS 14 with an extremely enhanced seamless handwriting input experience, but it requires the powerful computing power of the A14 chip and a separately sold apple pencil. Other solutions like capacitive and bluetooth stylus have readily lower cost. Still, they can only work with devices with touchscreen enabled and rely on hardware-specific optimized software to deliver a good experience. It is undeniably true that the vast majority of low-end devices offer a very poor handwriting experience.
+First, the cost of handwritten-enabled devices with a smooth experience is high. Currently, multiple solutions exist for scribble digitization. For example, Microsoft Surface Pro has a built-in Wacom-made digitizer layer and a pen designed for it to achieve such functionality. Apple iPad introduced the scribble feature in iOS 14 with an extremely enhanced seamless handwriting input experience, but it requires the powerful computing power of the A14 chip and a separately sold apple pencil. Other solutions like capacitive and bluetooth stylus have readily lower cost. Still, they can only work with devices with touchscreen enabled and rely on hardware-specific optimized software to deliver a good experience. It is undeniably true that the vast majority of low-end devices offer a very poor handwriting experience.
 
 Secondly, hardware support is relatively stringent. Most of the handwritten solutions for electronics does not generalize well to different devices and mainly focus on the need of high-end electronics. Also, if handwritten characters are used as input, the recognition of handwritten characters becomes the burden on the interfaced device, placing demands on the system's software and hardware performance, increasing the system's complexity and reducing its reliability and real-time performance.
 
@@ -114,19 +114,19 @@ The User Interface of the device is shown in figure below. The black square area
 In fast mode, after the user is done writing one character, the character with the highest score from inference is sent out through Bluetooth Low Energy immediately. Such setup allows maximum input speed.
 
 ### Slow Mode
-In slow mode, the written character will not be sent out instantly after the inference is done. Rather, the characters with the top 3 scores from the inference will be printed in the blue panel, allowing users to confirm and select the correct character to send out as keyboard stroke. If none of the infered character matches user's input, the user can simply tap the 'backspace' button to clear the screen and rewrite the character. With such design, the input speed is slower in exchange for more robust inference.
+In slow mode, the written character will not be sent out instantly after the inference is done. Rather, the characters with the top 3 scores from the inference will be printed in the blue panel, allowing users to confirm and select the correct character to send out as keyboard stroke. If none of the inferred character matches user's input, the user can simply tap the 'backspace' button to clear the screen and rewrite the character. With such design, the input speed is slower in exchange for more robust inference.
 
 <p align="middle">
     <img src="media/slow_mode.jpg" width="60%"/>
 </p>
 
 ## 3.2 Bluetooth Low Energy
-In contrast to Bluetooth classic, BLE is designed for significantly low power consumption, which is suitable for our application. Keyboard service is a reserved service in BLE, which eliminates the burden of writing custom service to send keyboar strokes. The infered character will be written as BLE characteristic to BLE keyboard service to achieve the wireless keyboard functionality.
+In contrast to Bluetooth classic, BLE is designed for significantly low power consumption, which is suitable for our application. Keyboard service is a reserved service in BLE, which eliminates the burden of writing custom service to send keyboard strokes. The inferred character will be written as BLE characteristic to BLE keyboard service to achieve the wireless keyboard functionality.
 
 ## 3.3 Image Resizing
-The size of black canvas that records user's drawing is 240-by-240, which is 57.6k input parameters in total. Indeed, high-resolution image typically enables better prediction accuracy thorugh neural network. However, considering the computing resource provided by Arduino Nano 33 BLE Sense, it is necessary to reduce the model size to deploy the model to Arduino Nano 33 BLE Sense with real-time inference. Also, pixels are represented by truth values.
+The size of black canvas that records user's drawing is 240-by-240, which is 57.6k input parameters in total. Indeed, high-resolution image typically enables better prediction accuracy through neural network. However, considering the computing resource provided by Arduino Nano 33 BLE Sense, it is necessary to reduce the model size to deploy the model to Arduino Nano 33 BLE Sense with real-time inference. Also, pixels are represented by truth values.
 
-For fast resizing, we use box sampling to sum the pixel values in a box and skip the rest of the values once the sum is greater than 0. During tesing, we realized the recognition accuracy is affected by the thickness of strokes. Therefore, we artificially increase the stroke thickness by 3 times when performing downsizing. A comparison of writting on screen and the resized image is shown in figure below.
+For fast resizing, we use box sampling to sum the pixel values in a box and skip the rest of the values once the sum is greater than 0. During testing, we realized the recognition accuracy is affected by the thickness of strokes. Therefore, we artificially increase the stroke thickness by 3 times when performing downsizing. A comparison of writing on screen and the resized image is shown in figure below.
 
 <p align="middle">
     <img src="media/resize.PNG" width="90%"/>
@@ -142,23 +142,23 @@ The system is first built on breadboard, shown in the figure below. After the ba
     <img src="media/PCB.PNG" width="80%"/>
 </p>
 
-In our PCB design, 2 3.7V Lipo batteries are used as power source. 2 3.7V lipo batteries are placed in series to supply 7.4V voltage to Arduino Nano 33 BLE Sense. Our chosen touchscreen Adafruit ILI9341 has a built-in LDO and accepts input voltage from 2.7V to 5.5V. Since Arduino Nano 33 BLE Sense has a 3.3V pin, we decided to add 2 capacitor footprints where 1 footprint connects 3.3V to the input of touchscreen and the other one connects 3.7V (voltage of one of the battery) to test which supply voltage is more stable. 
+In our PCB design, 2 3.7V LiPo batteries are used as power source. 2 3.7V LiPo batteries are placed in series to supply 7.4V voltage to Arduino Nano 33 BLE Sense. Our chosen touchscreen Adafruit ILI9341 has a built-in LDO and accepts input voltage from 2.7V to 5.5V. Since Arduino Nano 33 BLE Sense has a 3.3V pin, we decided to add 2 capacitor footprints where 1 footprint connects 3.3V to the input of touchscreen and the other one connects 3.7V (voltage of one of the battery) to test which supply voltage is more stable. 
 
 ## 3.5 Firmware
-The workflow of the firmware can be represented in the diagram below. There are two threads operating in parallel and 1 semaphore to help with the timing of two threads. One thread controls the operation of BLE, mainly the write characteristic command and the other thread controls the touchscreen as well as the inference of user's input. BLE thread releases the semaphore when it is done writing characteristic and touchscreen thread realses the semaphore when inference is done. 
+The workflow of the firmware can be represented in the diagram below. There are two threads operating in parallel and 1 semaphore to help with the timing of two threads. One thread controls the operation of BLE, mainly the write characteristic command and the other thread controls the touchscreen as well as the inference of user's input. BLE thread releases the semaphore when it is done writing characteristic and touchscreen thread releases the semaphore when inference is done. 
 
 <p align="middle">
     <img src="media/RTOS.PNG" width="90%"/>
 </p>
 
-Debouncing is cruicial for touchscreen applications. We allow 30ms between each touch on screen. When the user is drawing consective lines, we record the coordinate of start and end point and draw a straight line between these two points as the approximate trajectory. The straight line is estimated using Bresenham's algorithm. Doing so also alleviate the issue of insufficient SPI clock speed since the SPI clock speed is locked at 1 Mhz on Arduino Nano 33 BLE Sense. This issue has not been resolved. Reports of this issue can be found [here](https://forum.arduino.cc/t/nano-33-ble-spi-speed-not-changing/656881) and [here](https://issueexplorer.com/issue/arduino/ArduinoCore-mbed/270).
+Debouncing is crucial for touchscreen applications. We allow 30ms between each touch on screen. When the user is drawing consecutive lines, we record the coordinate of start and end point and draw a straight line between these two points as the approximate trajectory. The straight line is estimated using Bresenham's algorithm. Doing so also alleviate the issue of insufficient SPI clock speed since the SPI clock speed is locked at 1 Mhz on Arduino Nano 33 BLE Sense. This issue has not been resolved. Reports of this issue can be found [here](https://forum.arduino.cc/t/nano-33-ble-spi-speed-not-changing/656881) and [here](https://issueexplorer.com/issue/arduino/ArduinoCore-mbed/270).
 
-Many characters are usually written in more than one consective stroke such as '4', 'B', and 'F'. To allow those characters to be captured, the firmware would wait for the next stroke for 150 ms before resizing and inference.
+Many characters are usually written in more than one consecutive stroke such as '4', 'B', and 'F'. To allow those characters to be captured, the firmware would wait for the next stroke for 150 ms before resizing and inference.
 
 
 
 ## 3.6 3D-printed Model for packaging
-3D models shown in tje figure below are drawn in Solidworks for packaging purpose. However, due to the significant delay of shipping, we have not received the 3D models yet. Thus, we are not able to verify the mechanical design.
+3D models shown in the figure below are drawn in SolidWorks for packaging purpose. However, due to the significant delay of shipping, we have not received the 3D models yet. Thus, we are not able to verify the mechanical design.
 
 <p align="middle">
     <img src="media/3D_model.PNG" width="80%"/>
@@ -234,7 +234,7 @@ We use Tensorflow to implement and train the model and then use Tensorflow Lite 
 
 There are many techniques to optimize the model for edge computing devices, such as quantization, quantization aware training, pruning, and so on. 
 
-We have tried quantization aware training but did not observe any performance improvement. Similarly, we didn not use pruning because the current version of Tensorflow Lite Micro will not benefit from pruning, i.e., the latency will not decrease.
+We have tried quantization aware training but did not observe any performance improvement. Similarly, we did not use pruning because the current version of Tensorflow Lite Micro will not benefit from pruning, i.e., the latency will not decrease.
 
 For the quantization part, we quantize not only the weights and biases but also the input and output of the model. Both are quantized to 8-bit.
 
@@ -288,7 +288,7 @@ Refer to the following excel files for detailed testing results:
 [Test Results for Slow Mode](https://github.com/hlc1209/ecem202a_project/blob/main/data/testing_slow_mode.xlsx)
 
 ## 4.3 Latency Analysis
-In lantency evaluation, we record the time spent on resizing the image until the infered character gets sent out through BLE in fast mode. The latency is printed in the serial monitor and we calculate the average latency from 50 trials. The recorded data can be found [here](https://github.com/hlc1209/ecem202a_project/blob/main/data/testing_latency.xlsx). The average latency over 50 trials is 208.1 ms. We've reached the preset goal from proposal.
+In latency evaluation, we record the time spent on resizing the image until the inferred character gets sent out through BLE in fast mode. The latency is printed in the serial monitor and we calculate the average latency from 50 trials. The recorded data can be found [here](https://github.com/hlc1209/ecem202a_project/blob/main/data/testing_latency.xlsx). The average latency over 50 trials is 208.1 ms. We've reached the preset goal from proposal.
 
 <p align="middle">
     <img src="media/latency.PNG" width="40%"/>
@@ -297,7 +297,7 @@ In lantency evaluation, we record the time spent on resizing the image until the
 
 # 5. Discussion and Conclusions
 
-
+In this project, we implement a low-cost and low-power real-time handwritten character recognition system using Arduino Nano 33 BLE Sense. A optimized convolutional neural network are designed and trained to recognize handwritten characters and achieved 95.38% accuracy on MNIST dataset and 83.71% accuracy on EMNIST dataset. The inference time on the board after optimization is 114ms. To build a integrated and portable handwriting recognition system, we designed a 3D printed case and PCB as well as battery power supply. The whole system is tested in real world application and achieved 80.6% accuracy in fast mode with a 200ms latency and 90.5% in slow mode. 
 
 ## 5.1 Error Analysis 
 Due to the limitation of the performance of the Arduino Nano 33 BLE, as well as the size of the available touchscreen, we choose to allow only one character on the screen at a time, rather than writing a whole sentence. 
