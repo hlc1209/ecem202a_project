@@ -71,11 +71,11 @@ The figures below are some examples of the original dataset images before pre-pr
 The figures below are some examples of the training images after pre-processing and augmentation. Each figure is generated using one original image .
 
 <p align="middle">
-   <img src="media/input_e.png" width="30%" height="30%"/>
+   <img src="media/input_e.png" width="28%"/>
    &nbsp;&nbsp;&nbsp;&nbsp;
-   <img src="media/input_H.png" width="30%" height="30%"/>
+   <img src="media/input_H.png" width="28%"/>
    &nbsp;&nbsp;&nbsp;&nbsp;
-   <img src="media/input_5.png" width="30%" height="30%"/>
+   <img src="media/input_5.png" width="28%"/>
 </p>
 
 ### Design Model Architecture
@@ -106,9 +106,11 @@ We use Tensorflow to implement and train the model and then use Tensorflow Lite 
 
 For the quantization part, we quantize not only the weights and biases but also the input and output of the model. Both are quantized to 8-bit.
 
-When quantizing and converting the model, we face a bug in Tensorflow Lite Micro. The bug is that the reshape layer cannot be quantized correctly. More specifically, the output of the reshape layer will has 32-bit integer datatype, which is not supported by Arduino Tensorflow Lite Micro. The wrongly converted model is shown below.
+When quantizing and converting the model, we face a bug in Tensorflow Lite Micro, which is that the reshape layer cannot be quantized correctly. More specifically, the output of the reshape layer will be 32-bit integer datatype, which is not supported by Arduino Tensorflow Lite Micro. The wrongly converted model is shown below.
 
-
+<p>
+    <img src="media/convert_bug.png" width=100%>
+</p>
 
 # 4. Evaluation and Results
 After the system is migrate from breadboard to PCB, 2 demonstrations are made for fast mode and slow mode. Refer to the links below.
@@ -119,7 +121,7 @@ Demo Video for Slow Mode:
 For evaluations, the system is tested with 2 3.7V LiPo battery as the power source shown in figure 4 below. Then, the recognition latency and recognition accuracy are tested. The recognition accuracy is tested under fast mode and slow mode separately. In the testing for slow mode, we count the trial as success if the written character shows up as 1 of the 3 selections on the left panel. In the testing for fast mode, only trials where the written character is written on central device are counted successful trials. In testing for accuracy, we handwrite each character (0 to 9, a to z, and A to Z) for 5 times and calculate the average accuracy over all characters. The accuracy for fast mode is 80.6% and the accuracy for slow mode is 95.4%. 
 
 <p>
-    <img src="media/system_setup.jpg" width=500px>
+    <img src="media/system_setup.jpg" width=100%>
 </p>
 
 
