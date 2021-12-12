@@ -22,9 +22,19 @@ In this project, we build a low-cost, small-size and low-power real-time handwri
 
 # Highlights
 
-<p align="middle">
-    <img src="media/demo_screenshot.jpg" width="80%"/>
-</p>
+<iframe width="80%"
+src="https://youtu.be/TnqZWla2pq8" 
+frameborder="0" 
+allow="accelerometer; encrypted-media; picture-in-picture" 
+allowfullscreen></iframe>
 
 * [Demo Video for Fast Mode](https://github.com/hlc1209/ecem202a_project/raw/main/docs/media/fast_demo.mp4)
+
+
+<iframe width="80%"
+src="https://youtu.be/La2jUmT9tKs" 
+frameborder="0" 
+allow="accelerometer; encrypted-media; picture-in-picture" 
+allowfullscreen></iframe>
+
 * [Demo Video for Slow Mode](https://github.com/hlc1209/ecem202a_project/raw/main/docs/media/slow_demo.mp4)
