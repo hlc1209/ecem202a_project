@@ -75,13 +75,18 @@ The workflow of the firmware can be represented in the diagram below. There are 
     <img src="media/RTOS.PNG" width="70%"/>
 </p>
 
-Debouncing is cruicial for touchscreen applications. We allow 30ms between each touch on screen. When the user is drawing consective lines, we record the coordinate of start and end point and draw a straight line between these two points as the approximate trajectory. The straight line is estimated using Bresenham's algorithm. Doing so also alleviate the issue of insufficient SPI clock speed since the SPI clock speed is locked at 1 Mhz on Arduino Nano 33 BLE Sense. This issue has not been resolved. Reports of this issue can be found [here](https://forum.arduino.cc/t/nano-33-ble-spi-speed-not-changing/656881) and [here](hhttps://issueexplorer.com/issue/arduino/ArduinoCore-mbed/270).
+Debouncing is cruicial for touchscreen applications. We allow 30ms between each touch on screen. When the user is drawing consective lines, we record the coordinate of start and end point and draw a straight line between these two points as the approximate trajectory. The straight line is estimated using Bresenham's algorithm. Doing so also alleviate the issue of insufficient SPI clock speed since the SPI clock speed is locked at 1 Mhz on Arduino Nano 33 BLE Sense. This issue has not been resolved. Reports of this issue can be found [here](https://forum.arduino.cc/t/nano-33-ble-spi-speed-not-changing/656881) and [here](https://issueexplorer.com/issue/arduino/ArduinoCore-mbed/270).
 
 Many characters are usually written in more than one consective stroke such as '4', 'B', and 'F'. To allow those characters to be captured, the firmware would wait for the next stroke for 150 ms before resizing and inference.
 
 
 
 ## 3D-printed Model for packaging
+3D models shown in figure 7 are drawn in Solidworks for packaging purpose. However, due to the significant delay of shipping, we have not received the 3D models yet. Thus, we are not able to verify the mechanical design.
+
+<p align="middle">
+    <img src="media/3D_model.PNG" width="50%"/>
+</p>
 
 ## Character recognition using Deep Learning
 
