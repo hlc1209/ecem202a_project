@@ -113,12 +113,12 @@ Yu Nong will be mainly responsible for task 1, 3, 5, 6, 7 and Hanlong Chen will 
 
 The proposed timeline is the following.
 
-## Week 1-2 (Oct. 4-17)  {-}
+## Week 1-2 (Oct. 4-17) 
 
 * Research for project ideas with focus on human interface device (HID)
 * Form a team of 2 considering the scope and difficulty of the project.
   
-## Week 3 (Oct. 18-24)  {-}
+## Week 3 (Oct. 18-24) 
 
 * Create project website on Github and finish the section of abstract.
 * Discuss project idea and validate the feasibility.

@@ -171,7 +171,7 @@ For the handwritten character recognition, the traditional method is to use OCR 
 To develop real-time character recognition algorithms that can be used on microcontrollers, we use deep learning to build and train a model that can achieve about 85% accuracy on 0-9 and a-z handwritten characters. To make real-time processing possible on the Arduino Nano 33, we utilize a variety of  optimization skills to build a tiny convolutional neural network, which has only 50k parameters in total, and the inference time on the device is ~100ms.
 
 
-### Dataset & Data Preprocessing
+#### Dataset & Data Preprocessing
 
 The dataset we used is Extended MNIST (EMNIST), which contains 814,255 characters in 62 classes. Compared to the MNIST dataset, it's about 12 times larger and includes a-z characters. Due to its huge scale, we didn't use other datasets to train the model.
 
@@ -206,7 +206,7 @@ The figures below are some examples of the training images after pre-processing 
    <img src="media/input_5.png" width="28%"/>
 </p>
 
-### Design Model Architecture
+##### Design Model Architecture
 Due to the limitation of Arduino Nano 33 BLE, there are strict limitations on model architecture. The following requirements should be met for the success of this project:
 
 1. Considering the target overall latency after the user finished writing a character is 200ms, the inference time should be equal or less than 150ms.
