@@ -29,11 +29,10 @@ This section should cover the following items:
 
 ## Operation Logic
 The User Interface of the device is shown in figure 1. The black square area allows user to write/draw characters with fingers or stylus pen. The left panel is divided into 5 parts. The first 3 buttons on the top are the selection buttons used in slow mode. The 4th button from the top is used to switch between fast and slow mode. The red backspace button is used to delete text or clear screen without sending the keyboard stroke in slow mode. 
+
 <p align="middle">
-    <img src="media/user_interface.jpg" width="100%">
+    <img src="media/UI.jpg" width="100%"/>
 </p>
-
-
 
 ### Fast Mode 
 
