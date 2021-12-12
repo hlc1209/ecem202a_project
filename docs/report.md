@@ -260,6 +260,7 @@ Second, electrical and mechanical designs need to be optimized. For electrical d
     <img src="media/usb_circle.jpg" width="50%"/>
 </p>
 
+Third, more evaluation of accuracy need to be done for different user, especially the ones that have no prior knowledge of the system. As developers are more familiar with the training dataset, it is very likely that we are biased to write characters that are more likely to be captured by the model, thus, overestimate the capability of the system. Ideally, more trials with different users need to be performed in the future to validate the performance.
 
 
 # 6. References
