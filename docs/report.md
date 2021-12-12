@@ -209,7 +209,7 @@ Refer to the following excel files for detailed testing results:
 </p>
 
 ## 4.3 Latency Analysis
-In lantency evaluation, we record the time from the moment the user finishes writing until the inferred character is sent out via BLE in fast mode. The latency is printed in the serial monitor and we calculate the average latency from 50 trials. The recorded data can be found [here](https://github.com/hlc1209/ecem202a_project/blob/main/data/testing_latency.xlsx). The average latency over 50 trials is 208.1 ms. We've reached the preset goal from proposal.
+In lantency evaluation, we record the time spent on resizing the image until the infered character gets sent out through BLE in fast mode. The latency is printed in the serial monitor and we calculate the average latency from 50 trials. The recorded data can be found [here](https://github.com/hlc1209/ecem202a_project/blob/main/data/testing_latency.xlsx). The average latency over 50 trials is 208.1 ms. We've reached the preset goal from proposal.
 
 <p align="middle">
     <img src="media/latency.PNG" width="40%"/>
@@ -240,5 +240,19 @@ It is almost impossible to deal with these errors as long as we only allow one c
 Fortunately, we developed the slow mode that allows the user to choose top 3 characters. The accuracy of the system is improved to 95.4% in the slow mode and in most cases, the user can get the correct character without having to write it again.
 
 ## Future Work
+First, the clock speed of SPI is locked at 1 Mhz on Arduino Nano 33 BLE because of imperfection in Arduino's mbed core, which somewhat degrades the performance of our system. With a faster SPI clock speed, we can achieve much smoothier visual effect and drawing experience. Currently, due to the limit of SPI clock speed, Bresenham's algorithm is used to estimated the trajectory. Therefore, zigzaging drawings may occur when drawing curves. The figure below is a common example. Also, when drawing large amount of pixels (for example, startup, print top-3-score characters), it is obvious that pixels are drawn lines by lines. The limitation of SPI speed of nRF52840 is 32 Mhz. We have rooms to optimize the user experience in terms of the screen effect. 
+
+<p align="middle">
+    <img src="media/zigzag.PNG" width="50%"/>
+</p>
+
+Second, electrical and mechanical designs need to be optimized. For electrical designs, we consider using a boost converter to provide 5V as the input voltage to the touchscreen. Currently, 3.7V which is the voltage provided by one of the battery is directly connected to the input of the touchscreen. We notice that the touchscreen dims occasionally due to the lower voltage supply. We also need to design switch for power on and off the device, as well as charging mechanism of the battery without disassembling the system. For mechanical design, we consider optimizing the layout of the PCB for the convenience for future development. As shown in the figure below, the USB port for development is blocked when the touchscreen is in place. Also, the 3D models for packaging need to be modified to incorporate the power switch and charging port.
+
+
+<p align="middle">
+    <img src="media/usb_circle.jpg" width="50%"/>
+</p>
+
+
 
 # 6. References
