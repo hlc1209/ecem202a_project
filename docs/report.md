@@ -28,7 +28,7 @@ This section should cover the following items:
 # 3. Technical Approach
 
 ## Operation Logic
-The User Interface of the device is shown in figure 1. The black square area allows user to write/draw characters with fingers or stylus pen. The left panel is divided into 5 parts. The first 3 buttons on the top are the selection buttons used in slow mode. The 4th button from the top is used to switch between fast and slow mode. The red backspace button is used to delete text or clear screen without sending the keyboard stroke in slow mode. 
+The User Interface of the device is shown in figure below. The black square area allows user to write/draw characters with fingers or stylus pen. The left panel is divided into 5 parts. The first 3 buttons on the top are the selection buttons used in slow mode. The 4th button from the top is used to switch between fast and slow mode. The red backspace button is used to delete text or clear screen without sending the keyboard stroke in slow mode. 
 
 <p align="middle">
     <img src="media/UI.jpg" width="500px"/>
@@ -50,14 +50,14 @@ In contrast to Bluetooth classic, BLE is designed for significantly low power co
 ## Image Resizing
 The size of black canvas that records user's drawing is 240-by-240, which is 57.6k input parameters in total. Indeed, high-resolution image typically enables better prediction accuracy thorugh neural network. However, considering the computing resource provided by Arduino Nano 33 BLE Sense, it is necessary to reduce the model size to deploy the model to Arduino Nano 33 BLE Sense with real-time inference. Also, pixels are represented by truth values.
 
-For fast resizing, we use box sampling to sum the pixel values in a box and skip the rest of the values once the sum is greater than 0. During tesing, we realized the recognition accuracy is affected by the thickness of strokes. Therefore, we artificially increase the stroke thickness by 3 times when performing downsizing. A comparison of writting on screen and the resized image is shown in figure 2 below.
+For fast resizing, we use box sampling to sum the pixel values in a box and skip the rest of the values once the sum is greater than 0. During tesing, we realized the recognition accuracy is affected by the thickness of strokes. Therefore, we artificially increase the stroke thickness by 3 times when performing downsizing. A comparison of writting on screen and the resized image is shown in figure below.
 
 <p align="middle">
     <img src="media/resize.PNG" width="70%"/>
 </p>
 
 ## Printed Circuit Board Design
-The system is first built on breadboard, shown in figure 3 below. After the basic functionality is verified, we ported the design to a 2-layer PCB to eliminate the jumper wires and improve mobility. We use easyEDA to PCB drawing for the ease of PCB ordering. The PCB drawing and finished PCB are shown in figure 4 and 5, respectively.
+The system is first built on breadboard, shown in the figure below. After the basic functionality is verified, we ported the design to a 2-layer PCB to eliminate the jumper wires and improve mobility. We use easyEDA to PCB drawing for the ease of PCB ordering. The PCB drawing and finished PCB are shown in the figures below, respectively.
 <p align="middle">
     <img src="media/bboard.jpg" width="50%"/>
 </p>
@@ -82,7 +82,7 @@ Many characters are usually written in more than one consective stroke such as '
 
 
 ## 3D-printed Model for packaging
-3D models shown in figure 7 are drawn in Solidworks for packaging purpose. However, due to the significant delay of shipping, we have not received the 3D models yet. Thus, we are not able to verify the mechanical design.
+3D models shown in tje figure below are drawn in Solidworks for packaging purpose. However, due to the significant delay of shipping, we have not received the 3D models yet. Thus, we are not able to verify the mechanical design.
 
 <p align="middle">
     <img src="media/3D_model.PNG" width="50%"/>
@@ -197,7 +197,7 @@ After the system is migrate from breadboard to PCB, 2 demonstrations are made fo
 Demo Video for Fast Mode:
 Demo Video for Slow Mode:
 
-For evaluations, the system is tested with 2 3.7V LiPo battery as the power source shown in figure 4 below. Then, the recognition latency and recognition accuracy are tested. The recognition accuracy is tested under fast mode and slow mode separately. In the test for slow mode, we count the trial as success if the written character shows up as 1 of the 3 selections on the left panel. In the test for fast mode, when calculating accuracy, only if the highest scoring character in the output matches the input is considered successful. In testing for accuracy, we handwrite each character (0 to 9, a to z, and A to Z) for 5 times and calculate the average accuracy over all characters. The accuracy for fast mode is 80.6% and the accuracy for slow mode is 95.4%. 
+For evaluations, the system is tested with 2 3.7V LiPo battery as the power source shown in the figure below. Then, the recognition latency and recognition accuracy are tested. The recognition accuracy is tested under fast mode and slow mode separately. In the test for slow mode, we count the trial as success if the written character shows up as 1 of the 3 selections on the left panel. In the test for fast mode, when calculating accuracy, only if the highest scoring character in the output matches the input is considered successful. In testing for accuracy, we handwrite each character (0 to 9, a to z, and A to Z) for 5 times and calculate the average accuracy over all characters. The accuracy for fast mode is 80.6% and the accuracy for slow mode is 95.4%. 
 
 Refer to the following excel files for detailed testing results:
 
