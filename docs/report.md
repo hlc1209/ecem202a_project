@@ -44,6 +44,12 @@ In slow mode, the written character will not be sent out instantly after the inf
     <img src="media/slow_mode.jpg" width="500px"/>
 </p>
 
+## Bluetooth Low Energy
+
+## Image Resizing
+The size of black canvas that records user's drawing is 240-by-240, which is 57.6k input parameters in total. Indeed, high-resolution image typically enables better prediction accuracy thorugh neural network. However, considering the computing resource provided by Arduino Nano 33 BLE Sense, it is necessary to reduce the model size to deploy the model to Arduino Nano 33 BLE Sense with real-time inference. Also, pixels are represented by truth values.
+
+For fast resizing, we use box sampling to sum the pixel values in a box and skip the rest of the values once the sum is greater than 0. During tesing, we realized the recognition accuracy is affected by the thickness of strokes. Therefore, we artificially increase the stroke thickness by 3 times when performing downsizing.
 
 ## Character recognition using Deep Learning
 
