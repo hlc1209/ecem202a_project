@@ -133,7 +133,7 @@ The figures below are some examples of the training images after pre-processing 
 ### Design Model Architecture
 Due to the limitation of Arduino Nano 33 BLE, there are strict limitations on model architecture. The following requirements should be met for the success of this project:
 
-1. Considering the target overall latency after the user finished writing a character is 150ms, the inference time should be equal or less than 120ms.
+1. Considering the target overall latency after the user finished writing a character is 200ms, the inference time should be equal or less than 150ms.
 2. The layers available in Tensorflow Lite Micro are limited. Some common layers are not available, such as BatchNormalization layer.
 3. The Arduino Nano 33 BLE has only 256 KB of SRAM. in addition, a large portion of the memory is needed to run the touch screen, generate input images, and send strokes using the BLE. So the available RAM space is limited.
 4. The Arduino Nano 33 BLE has 1 MB of flash. Although this is still a small number compared to common neural networks, we didn't have any issue with flash space, since to meed the inference time requirement, the model is small enough.
@@ -208,6 +208,7 @@ Refer to the following excel files for detailed testing results:
     <img src="media/system_setup.jpg" width="60%"/>
 </p>
 
+## 4.3 Latency Analysis
 
 
 # 5. Discussion and Conclusions
