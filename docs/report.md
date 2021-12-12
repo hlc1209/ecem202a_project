@@ -120,21 +120,38 @@ The final model architecture has 11,160 parameters in total. The accuracy on the
 
 We use Tensorflow to implement and train the model and then use Tensorflow Lite Micro to quantize and convert the model to C header file.
 
+There are many techniques to optimize the model for edge computing devices, such as quantization, quantization aware training, pruning, and so on. 
+
+We have tried quantization aware training but did not observe any performance improvement. Similarly, we didn not use pruning because the current version of Tensorflow Lite Micro will not benefit from pruning, i.e., the latency will not decrease.
+
 For the quantization part, we quantize not only the weights and biases but also the input and output of the model. Both are quantized to 8-bit.
 
-When quantizing and converting the model, we face a bug in Tensorflow Lite Micro, which is that the reshape layer cannot be quantized correctly. More specifically, the output of the reshape layer will be 32-bit integer datatype, which is not supported by Arduino Tensorflow Lite Micro. The wrongly converted model is shown below.
+When quantizing and converting the model, we face a bug in Tensorflow Lite Micro, which is that the reshape layer cannot be quantized correctly. More specifically, the output of the reshape layer will be 32-bit integer datatype, which is not supported by Arduino Tensorflow Lite Micro. A illustration of the bug is shown below.
 
 <p align="middle">
     <img src="media/convert_bug.png" width="100%"/>
 </p>
 
+The bug is reported in this [github page](https://github.com/tensorflow/tensorflow/issues/45256) and this [github page](https://github.com/tensorflow/tensorflow/issues/50286), but we haven't see any official solution until the latest Tensorflow release.
+
+We spent a lot of time on this and found a perfect solution, as the image shown above. In the training stage, we use normal setting for the reshape layer, i.e., batch_size=32 or 64. In the converting stage, we create a new model with the same architecture, but set the batch_size of the reshaping layer to 1, and transfer the weights and biases to the new model. Finally, we convert the new model to C header file.
+
+This perfectly solves the bug, without any loss of performance during training on the GPU and inference on the board.
+
 # 4. Evaluation and Results
+## 4.2 Evaluation on the Test Set
+
+## 4.1 Real world evaluation
 After the system is migrate from breadboard to PCB, 2 demonstrations are made for fast mode and slow mode. Refer to the links below.
 
 Demo Video for Fast Mode:
 Demo Video for Slow Mode:
 
+<<<<<<< HEAD
 For evaluations, the system is tested with 2 3.7V LiPo battery as the power source shown in figure 4 below. Then, the recognition latency and recognition accuracy are tested. The recognition accuracy is tested under fast mode and slow mode separately. In the testing for slow mode, we count the trial as success if the written character shows up as 1 of the 3 selections on the left panel. In the testing for fast mode, ony the character with the highest score in inference is considered when calculating accuracy. In testing for accuracy, we handwrite each character (0 to 9, a to z, and A to Z) for 5 times and calculate the average accuracy over all characters. The accuracy for fast mode is 80.6% and the accuracy for slow mode is 95.4%. 
+=======
+For evaluations, the system is tested with 2 3.7V LiPo battery as the power source shown in figure 4 below. Then, the recognition latency and recognition accuracy are tested. The recognition accuracy is tested under fast mode and slow mode separately. In the test for slow mode, we count the trial as success if the written character shows up as 1 of the 3 selections on the left panel. In the test for fast mode, only trials where the written character is written on central device are counted successful trials. When testing for accuracy, we handwrite each character (0 to 9, a to z, and A to Z) for 5 times and calculate the average accuracy over all characters. The accuracy for fast mode is 80.6% and the accuracy for slow mode is 95.4%. 
+>>>>>>> 9c99a3e5fee6dd9335885d73525d67c6e0533008
 
 <p align="middle">
     <img src="media/system_setup.jpg" width="100%"/>
