@@ -1,4 +1,4 @@
-## M202A Course Project
+# Proposal
 # 1. Motivation & Objective
 
 Designers have long recognized that handwriting with a pen offers more fluidity compared with typing. After the keyboard has been the dominant input device for electronics for years, stylus pen comes into play as another commonly-used input device for electronics. While stylus pen becomes increasingly popular over the years, problems remain in this type of device, which could be turned into sizable market if properly solved. 
@@ -9,7 +9,7 @@ First, the cost of handwritten-enabled devices with a smooth experience is high.
 
 Secondly, hardware support is relatively stringent. Most of the handwritten solutions for electronics does not generalize well to different devices and mainly focus on the need of high-end electronics. Also, if handwritten characters are used as input, the recognition of handwritten characters becomes the burden on the interfaced device, placing demands on the system's software and hardware performance, increasing the system's complexity and reducing its reliability and real-time performance.
 
-To tackle the aforementioned problems, we propose to develop a low-cost and low-power device with a capacitive touchscreen that is able to offers a seamless handwriting input experience and send commands/keyboard strokes to bluetooth low energy (BLE) enabled devices as an alternative to conventional keyboard input. Such device is essentially a new type of human interface devices (HID) and able to work universally with any BLE enabled devices with minimum change in firmware. Since the handwritten recognition is done on this embedded device, there would be little hardware constraints for the interfaced devices except BLE capability. 
+To tackle the aforementioned problems, we propose to develop a low-cost and low-power device with a capacitive touchscreen that is able to offers a fluent handwriting input experience and send commands/keyboard strokes to bluetooth low energy (BLE) enabled devices as an alternative to conventional keyboard input. Such device is essentially a new type of human interface devices (HID) and able to work universally with any BLE enabled devices with minimum change in firmware. Since the handwritten recognition is done on this embedded device, there would be little hardware constraints for the interfaced devices except BLE capability. 
 
 # 2. State of the Art & Its Limitations
 
@@ -23,9 +23,9 @@ Nevertheless, this powerful approach relies on strong chips on Android devices a
 
 # 3. Novelty & Rationale
 
-Nowadays, seamless handwritten recognition solutions either work on specialized devices or touchscreen enabled high-end electronics, e.g., BMW iDrive infotainment system and Apple iPad. Also, the handwritten recognition algorithm of these devices typical requires the support of powerful processors. We envision a system with a small touch screen built in to collect handwritten inputs and infer the written characters on chip before sending out the commands/keyboard strokes. 
+Nowadays, handwritten recognition solutions either work on specialized devices or touchscreen enabled high-end electronics, e.g., BMW iDrive infotainment system and Apple iPad. Also, the handwritten recognition algorithm of these devices typical requires the support of powerful processors. We envision a system with a small touch screen built in to collect handwritten inputs and infer the written characters on chip before sending out the commands/keyboard strokes. 
 
-Therefore, high compatibility and seamless input experience on a low-cost, low-power compact device is the main aspect that makes our proposed device stand out from other touchscreen solutions available in the market. 
+Therefore, high compatibility and fluent input experience on a low-cost, low-power compact device is the main aspect that makes our proposed device stand out from other touchscreen solutions available in the market. 
 
 Moreover, given the flexibility of handwritten input, our device enables fast execution of complex commands by binding a custom stroke to a sequence of instructions. Simultaneously, the device has unlimited possibilities for extended functionality. For example, performing calculations on handwritten numbers and symbols and transmitting the final results to the terminal equipment via BLE.
 
@@ -37,7 +37,7 @@ In short, such device brings a new way of electronic interface with high perform
 
 # 5. Challenges
 
-First of all, the experience of handwriting recognition input is critical, i.e., low latency, high accuracy and high efficiency. After we decided to use on-device deep learning inference for handwriting character recognition, it became pivotal to implement fast and accurate model inference while handling GUI drawing, user stroke input and BLE transmission on an ultra-low power device. Secondly, how to achieve seamless handwriting input on ultra-low power devices is to be overcome. We need a deep collaboration of deep learning models and GUI to achieve this. Likewise, data transmission via BLE is very important and needs to be user friendly, low latency and highly reliable. 
+First of all, the experience of handwriting recognition input is critical, i.e., low latency, high accuracy and high efficiency. After we decided to use on-device deep learning inference for handwriting character recognition, it became pivotal to implement fast and accurate model inference while handling GUI drawing, user stroke input and BLE transmission on an ultra-low power device. Secondly, how to achieve fluent handwriting input on ultra-low power devices is to be overcome. We need a deep collaboration of deep learning models and GUI to achieve this. Likewise, data transmission via BLE is very important and needs to be user friendly, low latency and highly reliable. 
 
 # 6. Requirement for Success
 
@@ -74,7 +74,7 @@ The success of the project will be evaluated through the following metrics.
 2. Response time:
    The time from writing a character to the completion of transmission.
 
-3. Seamlessness: 
+3. Fluentness: 
    The time from writing a sentence to the completion of transmission.
 
 4. Power consumption:
@@ -98,7 +98,7 @@ The project can be partitioned into 5 mandatory tasks and 2 optional tasks:
    Fully integrate the machine learning model with the touch screen and BLE to achieve basic system features. 
 
 4. Model Optimization:
-   Optimize the machine learning model for seamless handwritten input, improved accuracy, and reduced model runtime.
+   Optimize the machine learning model for fluent handwritten input, improved accuracy, and reduced model runtime.
 
 5. System optimization:
    Reduce system latency and optimize the GUI to improve user interaction experience.
@@ -173,7 +173,7 @@ While this article demonstrates the basic feasibility of our project, the plan f
 
 In this article, the described method is implemented using the Raspberry Pi 3 which comes with 1GB RAM and 1.2 GHz main clock speed, we are aiming to reproduce a system with similar performance using Arduino Nano 33 BLE Sense which has only 256KB RAM and 64 MHz main clock speed. In this paper, authors were able to achieve an accuracy of 93.4% with a response time of 21.9 ms. Such high performance in both accuracy and response time is at the cost of a more expensive and power-consuming device. However, we notice that the machine learning models implemented in Raspberry Pi 3 are not optimized using any of the emerging model compression techniques such as pruning and quantization. Therefore, it is feasible to achieve similar performance on a less power device with a much more compressed model with reasonable cost in accuracy and response time. 
 
-The proposed method in the article performance only one task, which simply outputs the model results of a single static handwritten character, and does not illustrate the performance of handwriting recognition in real-world applications where efficiency, usability, and accuracy are extremely important. In our anticipated system, we propose to extend the functionality of the system to do deep learning-based seamless handwriting input in conjunction with capturing user's stroke input through touch screen and interacting with external device via BLE. In this context, two tasks exist simultaneously. One is the recognition of handwritten characters and the other is the BLE service as the interface between devices. Due to the sporadic nature of the first task, the scheduling scheme of these two events needs to be carefully evaluated and addressed.
+The proposed method in the article performance only one task, which simply outputs the model results of a single static handwritten character, and does not illustrate the performance of handwriting recognition in real-world applications where efficiency, usability, and accuracy are extremely important. In our anticipated system, we propose to extend the functionality of the system to do deep learning-based fluent handwriting input in conjunction with capturing user's stroke input through touch screen and interacting with external device via BLE. In this context, two tasks exist simultaneously. One is the recognition of handwritten characters and the other is the BLE service as the interface between devices. Due to the sporadic nature of the first task, the scheduling scheme of these two events needs to be carefully evaluated and addressed.
 
 
 ## 9.b. Datasets
