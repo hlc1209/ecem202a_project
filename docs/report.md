@@ -53,7 +53,7 @@ The size of black canvas that records user's drawing is 240-by-240, which is 57.
 For fast resizing, we use box sampling to sum the pixel values in a box and skip the rest of the values once the sum is greater than 0. During tesing, we realized the recognition accuracy is affected by the thickness of strokes. Therefore, we artificially increase the stroke thickness by 3 times when performing downsizing. A comparison of writting on screen and the resized image is shown in figure 2 below.
 
 <p align="middle">
-    <img src="media/convert_bug.png" width="70%"/>
+    <img src="media/resize.png" width="70%"/>
 </p>
 
 ## Printed Circuit Board Design
