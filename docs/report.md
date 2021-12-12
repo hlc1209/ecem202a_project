@@ -59,7 +59,7 @@ For fast resizing, we use box sampling to sum the pixel values in a box and skip
 ## Printed Circuit Board Design
 The system is first built on breadboard, shown in figure 3 below. After the basic functionality is verified, we ported the design to a 2-layer PCB to eliminate the jumper wires and improve mobility. We use easyEDA to PCB drawing for the ease of PCB ordering. The PCB drawing and finished PCB are shown in figure 4 and 5, respectively.
 <p align="middle">
-    <img src="media/breadboard.PNG" width="50%"/>
+    <img src="media/breadboard.jpg" width="50%"/>
 </p>
 
 <p align="middle">
