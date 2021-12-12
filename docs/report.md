@@ -27,6 +27,15 @@ This section should cover the following items:
 
 # 3. Technical Approach
 
+## Operation Logic
+The User Interface of the device is shown in figure 1. The black square area allows user to write/draw characters with fingers or stylus pen. The left panel is divided into 5 parts. The first 3 buttons on the top are the selection buttons used in slow mode. The 4th button from the top is used to switch between fast and slow mode. The red backspace button is used to delete text or clear screen without sending the keyboard stroke in slow mode. 
+
+### Fast Mode 
+
+### Slow Mode
+In slow mode, the written character will not be sent out instantly after the inference is done. Rather, the characters with the top 3 scores from the inference will be printed in the blue panel, allowing users to confirm and select the correct character to send out as keyboard stroke. If none of the infered character matches user's input, the user can simply tap the 'backspace' button to clear the screen and rewrite the character.
+
+
 ## Character recognition using Deep Learning
 
 For the handwritten character recognition, the traditional method is to use OCR algorithms. However, for the Arduino Nano 33 BLE Sense we are using, most OCR algorithms require well over 1MB of flash space, and demand more computational capacity than a microcontroller can provide for real-time processing.
@@ -103,6 +112,7 @@ When quantizing and converting the model, we face a bug in Tensorflow Lite Micro
 
 # 4. Evaluation and Results
 After the system is migrate from breadboard to PCB, 2 demonstrations are made for fast mode and slow mode. Refer to the links below.
+
 Demo Video for Fast Mode:
 Demo Video for Slow Mode:
 
