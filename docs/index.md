@@ -22,7 +22,7 @@ In this project, we build a low-cost, small-size and low-power real-time handwri
 
 # Highlights
 
-<iframe width="80%"
+<iframe width="80%" align="middle" height="315"
 src="https://www.youtube.com/embed/TnqZWla2pq8" 
 frameborder="0" 
 allow="accelerometer; encrypted-media; picture-in-picture" 
@@ -31,7 +31,7 @@ allowfullscreen></iframe>
 * [Demo Video for Fast Mode](https://github.com/hlc1209/ecem202a_project/raw/main/docs/media/fast_demo.mp4)
 
 
-<iframe width="80%"
+<iframe width="80%" align="middle" height="315"
 src="https://www.youtube.com/embed/La2jUmT9tKs" 
 frameborder="0" 
 allow="accelerometer; encrypted-media; picture-in-picture" 
