@@ -297,7 +297,7 @@ In latency evaluation, we record the time spent on resizing the image until the 
 
 # 5. Discussion and Conclusions
 
-In this project, we implement a low-cost and low-power real-time handwritten character recognition system using Arduino Nano 33 BLE Sense. A optimized convolutional neural network are designed and trained to recognize handwritten characters and achieved 95.38% accuracy on MNIST dataset and 83.71% accuracy on EMNIST dataset. The inference time on the board after optimization is 114ms. To build a integrated and portable handwriting recognition system, we designed a 3D printed case and PCB as well as battery power supply. The whole system is tested in real world application and achieved 80.6% accuracy in fast mode with a 200ms latency and 90.5% in slow mode. 
+In this project, we implement a low-cost and low-power real-time handwritten character recognition system using Arduino Nano 33 BLE Sense. A optimized convolutional neural network are designed and trained to recognize handwritten characters and achieved 95.38% accuracy on MNIST dataset and 83.71% accuracy on EMNIST dataset. The inference time on the board after optimization is 114ms. To build a integrated and portable handwriting recognition system, we designed a 3D printed case and PCB as well as battery power supply. The whole system is tested in real world application and achieved 80.6% accuracy in fast mode with a 200ms latency and 95.4% in slow mode. 
 
 ## 5.1 Error Analysis 
 Due to the limitation of the performance of the Arduino Nano 33 BLE, as well as the size of the available touchscreen, we choose to allow only one character on the screen at a time, rather than writing a whole sentence. 
