@@ -146,7 +146,7 @@ We spent a lot of time on this and found a perfect solution, as the image shown 
 This perfectly solves the bug, without any loss of performance during training on the GPU and inference on the board.
 
 # 4. Evaluation and Results
-## 4.2 Evaluation on the Test Set
+## 4.1 Evaluation on the Test Set
 
 We evaluate the model on two datasets: EMNIST and MNIST.
 
@@ -160,9 +160,9 @@ For the EMNIST dataset, we achieved a test accuracy of 83.71%. Considering the 8
     <img src="media/confusion_matrix_emnist.png" width="100%"/>
 </p>
 
+A detailed analysis of the confusion matrix is shown in the[Discussion](#limitation--error-analysis) section.
 
-
-## 4.1 Real world evaluation
+## 4.2 Real world evaluation
 After the system is migrate from breadboard to PCB, 2 demonstrations are made for fast mode and slow mode. Refer to the links below.
 
 Demo Video for Fast Mode:
@@ -177,5 +177,14 @@ For evaluations, the system is tested with 2 3.7V LiPo battery as the power sour
 
 
 # 5. Discussion and Conclusions
+
+
+
+## Limitation & Error Analysis 
+Due to the limitation of the performance of the Arduino Nano 33 BLE, as well as the size of the available touchscreen, we choose to allow only one character on the screen at a time, rather than writing a whole sentence. 
+
+This compromise is not only for the convenience of the user, but also for the efficiency of the system. However, it also brings harmful effects to the recognition accuracy. As we can see in the confusion matrix shown [above](#41-evaluation-on-the-test-set), there are some obvious errors.
+
+## Future Work
 
 # 6. References
