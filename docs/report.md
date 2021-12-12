@@ -72,7 +72,7 @@ In our PCB design, 2 3.7V Lipo batteries are used as power source. 2 3.7V lipo b
 The workflow of the firmware can be represented in the diagram below. There are two threads operating in parallel and 1 semaphore to help with the timing of two threads. One thread controls the operation of BLE, mainly the write characteristic command and the other thread controls the touchscreen as well as the inference of user's input. BLE thread releases the semaphore when it is done writing characteristic and touchscreen thread realses the semaphore when inference is done. 
 
 <p align="middle">
-    <img src="media/RTOS." width="70%"/>
+    <img src="media/RTOS.PNG" width="70%"/>
 </p>
 
 Debouncing is cruicial for touchscreen applications. We allow 30ms between each touch on screen. When the user is drawing consective lines, we record the coordinate of start and end point and draw a straight line between these two points as the approximate trajectory. The straight line is estimated using Bresenham's algorithm. Doing so also alleviate the issue of insufficient SPI clock speed since the SPI clock speed is locked at 1 Mhz on Arduino Nano 33 BLE Sense. This issue has not been resolved. Reports of this issue can be found [here](https://forum.arduino.cc/t/nano-33-ble-spi-speed-not-changing/656881) and [here](hhttps://issueexplorer.com/issue/arduino/ArduinoCore-mbed/270).
