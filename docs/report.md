@@ -56,10 +56,10 @@ To address the issues listed above, as well as to improve the performance of the
 
 The figures below are some of the training images after pre-processing and augmentation.
 
-![Example of Training Inputs of Character e](media/input_e.png)
-
-![Example of Training Inputs of Character H](media/input_H.png)
-
+<p align="middle">
+   <img src="media/input_e.png" width="45%" height="45%"/>
+   <img src="media/input_H.png" width="45%" height="45%"/>
+</p>
 
 ### Design Model Architecture
 Due to the limitation of Arduino Nano 33 BLE, there are strict limitations on model architecture. The following requirements should be met for the success of this project:
