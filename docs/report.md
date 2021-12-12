@@ -27,6 +27,15 @@ This section should cover the following items:
 
 # 3. Technical Approach
 
+## Operation Logic
+The User Interface of the device is shown in figure 1. The black square area allows user to write/draw characters with fingers or stylus pen. The left panel is divided into 5 parts. The first 3 buttons on the top are the selection buttons used in slow mode. The 4th button from the top is used to switch between fast and slow mode. The red backspace button is used to delete text or clear screen without sending the keyboard stroke in slow mode. 
+
+### Fast Mode 
+
+### Slow Mode
+In slow mode, 
+
+
 ## Character recognition using Deep Learning
 
 For the handwritten character recognition, the traditional method is to use OCR algorithms. However, for the Arduino Nano 33 BLE Sense we are using, most OCR algorithms require well over 1MB of flash space, and demand more computational capacity than a microcontroller can provide for real-time processing.
@@ -91,6 +100,7 @@ Another idea from recent research is that instead of using a flatten layer and 2
 
 # 4. Evaluation and Results
 After the system is migrate from breadboard to PCB, 2 demonstrations are made for fast mode and slow mode. Refer to the links below.
+
 Demo Video for Fast Mode:
 Demo Video for Slow Mode:
 
