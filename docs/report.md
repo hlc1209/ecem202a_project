@@ -208,7 +208,15 @@ This compromise is not only for the convenience of the user, but also for the ef
     <img src="media/confusion_matrix_emnist_zoomin.png" width="100%"/>
 </p>
 
+The errors in the red circle are due to the fact that it is almost impossible to distinguish the upper and lower case letters when only giving a single character without context. For example, the pair 'x' and 'X', the pair 'o' and 'O', the pair 'z' and 'Z', and the pair 's' and 'S'. 
 
+A simple method to deal with this problem is to always output the lower case letters, since the situation that the upper case letters are written is very rare.
+
+Other errors on the left of the circle are due to the similarity between numbers and letters. For example, the pair '0' and 'O', the pair '1' and 'l', the pair '2' and 'Z', and the pair '3' and 'S'. 
+
+It is almost impossible to deal with these errors as long as we only allow one character each time on the screen. Allowing more characters on the screen, or deploying a time-series deep learning model, is not a good idea for this microcontroller.
+
+Fortunately, we developed the slow mode that allows the user to choose top 3 characters. The accuracy of the system is improved to 95.4% in the slow mode and in most cases, the user can get the correct character without having to write it again.
 
 ## Future Work
 
