@@ -58,6 +58,7 @@ The figures below are some of the training images after pre-processing and augme
 
 <p align="middle">
    <img src="media/input_e.png" width="45%" height="45%"/>
+   &nbsp;&nbsp;&nbsp;&nbsp;
    <img src="media/input_H.png" width="45%" height="45%"/>
 </p>
 
