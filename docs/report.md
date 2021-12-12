@@ -10,7 +10,7 @@
 
 # Abstract
 
-In this project, we build a low-cost, small-size and low-power real-time handwritten character recognition system based on Arduino Nano 33 BLE Sense with a touch screen, which is capable of offering fluent handwriting input experience in real-time and send recognized characters to BLE-enabled terminal equipment as keyboard strokes. Inference of character recognition deep learning model is done on the Arduino Nano 33 BLE Sense to enable the compatibility to any BLE-enabled devices. We achieve a accuracy of 80.6% in fast mode with a latency of 200ms and 90.5% in slow mode. In addition, we designed the PCB and 3D printed case for the device to reduce the use of flying wires and to make the device integrated and portable.
+In this project, we build a low-cost, small-size and low-power real-time handwritten character recognition system based on Arduino Nano 33 BLE Sense with a touch screen, which is capable of offering fluent handwriting input experience in real-time and send recognized characters to BLE-enabled terminal equipment as keyboard strokes. Inference of character recognition deep learning model is done on the Arduino Nano 33 BLE Sense to enable the compatibility to any BLE-enabled devices. We achieve a accuracy of 80.6% in fast mode with a latency of 200ms and 95.4% in slow mode. In addition, we designed the PCB and 3D printed case for the device to reduce the use of flying wires and to make the device integrated and portable.
 
 <p align="middle">
     <img src="media/system_setup.jpg" width="80%"/>
