@@ -193,10 +193,16 @@ For evaluations, the system is tested with 2 3.7V LiPo battery as the power sour
 
 
 
-## Limitation & Error Analysis 
+## Error Analysis 
 Due to the limitation of the performance of the Arduino Nano 33 BLE, as well as the size of the available touchscreen, we choose to allow only one character on the screen at a time, rather than writing a whole sentence. 
 
-This compromise is not only for the convenience of the user, but also for the efficiency of the system. However, it also brings harmful effects to the recognition accuracy. As we can see in the confusion matrix shown [above](#41-evaluation-on-the-test-set), there are some obvious errors.
+This compromise is not only for the convenience of the user, but also for the efficiency of the system. However, it also brings harmful effects to the recognition accuracy. As we can see in the confusion matrix shown below, there are some obvious errors.
+
+<p align="middle">
+    <img src="media/confusion_matrix_emnist_zoomin.png" width="100%"/>
+</p>
+
+
 
 ## Future Work
 
