@@ -53,19 +53,34 @@ To address the issues listed above, as well as to improve the performance of the
 4. Crop the resized image into a square image of size 32\*32 with random cropping positions. Thus, the training characters will be positioned at different position. This is to solve the third problem mentioned above.
 5. Binarize image to 1-bit image. The threshold we use is 0.3. This will solve the final problem listed above.
 
-
-The figures below are some of the training images after pre-processing and augmentation.
+The figures below are some examples of the original dataset images before pre-processing and augmentation.
 
 <p align="middle">
-   <img src="media/input_e.png" width="45%" height="45%"/>
+<img src="media/input_original.png" width="94%">
+</p>
+
+The figures below are some examples of the training images after pre-processing and augmentation. Each figure is generated using one original image .
+
+<p align="middle">
+   <img src="media/input_e.png" width="30%" height="30%"/>
    &nbsp;&nbsp;&nbsp;&nbsp;
-   <img src="media/input_H.png" width="45%" height="45%"/>
+   <img src="media/input_H.png" width="30%" height="30%"/>
+   &nbsp;&nbsp;&nbsp;&nbsp;
+   <img src="media/input_5.png" width="30%" height="30%"/>
 </p>
 
 ### Design Model Architecture
 Due to the limitation of Arduino Nano 33 BLE, there are strict limitations on model architecture. The following requirements should be met for the success of this project:
 
-1. The inference time should be equal or less than 120ms.
+1. Considering the target overall latency after the user finished writing a character is 150ms, the inference time should be equal or less than 120ms.
+2. The layers available in Tensorflow Lite Micro are limited. Some common layers are not available, such as BatchNormalization layer.
+3. The Arduino Nano 33 BLE has only 256 KB of SRAM. in addition, a large portion of the memory is needed to run the touch screen, generate input images, and send strokes using the BLE. So the available RAM space is limited.
+4. The Arduino Nano 33 BLE has 1 MB of flash. Although this is still a small number compared to common neural networks, we didn't have any issue with flash space, since to meed the inference time requirement, the model is small enough.
+
+
+<p>
+    <img src="media/model.png" width=500px>
+</p>
 
 # 4. Evaluation and Results
 
