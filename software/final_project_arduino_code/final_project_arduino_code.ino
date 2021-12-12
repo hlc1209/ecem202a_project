@@ -151,13 +151,6 @@ void func1(){
   old_time = millis();
   bool writtenFlag = false;
 
-//    micro_op_resolver.AddMaxPool2D();
-//  micro_op_resolver.AddConv2D();
-//  micro_op_resolver.AddDepthwiseConv2D();
-//  micro_op_resolver.AddReshape();
-//  micro_op_resolver.AddSoftmax();
-//  micro_op_resolver.AddFullyConnected();
-
   // get the TFL representation of the model byte array
   tflModel = tflite::GetModel(model);
   if (tflModel->version() != TFLITE_SCHEMA_VERSION) {
@@ -215,15 +208,6 @@ void func1(){
         }
       }
 
-//      Serial.println(millis());
-//          for (int i = 0; i<32; i++){
-//            for (int j = 0; j<32; j++){
-//                Serial.print(downscaledImage[i][j]);
-//              }
-//              Serial.println();
-//            }
-//          Serial.println();
-
 // Inference
       for (int y = 0; y < Widths; y++) {  
         for (int x = 0; x < Widths; x++) {
@@ -242,14 +226,8 @@ void func1(){
       int8_t score1 = -128;
       int8_t score2 = -128;
       int8_t score3 = -128;
-//      int charIndex1 = 0;
-//      int charIndex2 = 0;
-//      int charIndex3 = 0;
       for (int i = 0; i < NUM_CHARACTERS; i++) {
-//        Serial.print(CHARACTERS[i]);
-//        Serial.print(": ");
         int8_t curr_category_score = tflOutputTensor->data.uint8[i];
-//        Serial.println(curr_category_score);
         if (curr_category_score > score1){
           score1 = curr_category_score;
           charIndex1 = i;
@@ -297,8 +275,6 @@ void func1(){
         while(!selected){
           now = millis();
           p = ctp.getPoint();
-//          Serial.print(p.x);
-//          Serial.print(p.y);
           p.x = map(p.x, 0, 240, 240, 0);
           p.y = map(p.y, 0, 320, 320, 0);
           if (now - old_time > 50){
@@ -339,37 +315,6 @@ void func1(){
           downscaledImage[i][j] = 0;
         }
       }
-
-//      int8_t score = -128;
-//      uint8_t charIndex = 0;
-//      for (int i = 0; i < NUM_CHARACTERS; i++) {
-////        Serial.print(CHARACTERS[i]);
-////        Serial.print(": ");
-//        int8_t curr_category_score = tflOutputTensor->data.uint8[i];
-////        Serial.println(curr_category_score);
-//        if (curr_category_score > score){
-//          score = curr_category_score;
-//          charIndex = i;
-//        }
-//      }
-//      recChar = charIndex + '0';
-//      Serial.println(charIndex);
-//      Serial.println();
-
-//      for(int i = 0; i<240; i++){
-//        for (int j = 0; j<240; j++){
-//          oriImage[i][j] = 0;
-//          if (oriImage[240 - i][j] == 1){
-//            oriImage[240-i][j] = 0;
-//            tft.drawPixel(i, j+80, ILI9341_BLACK);
-//          }
-//        }
-//      }
-//      for(int i = 0; i<32; i++){
-//        for(int j = 0; j<32; j++){
-//          downscaledImage[i][j] = 0;
-//        }
-//      }      
      }
      
   }
@@ -408,29 +353,6 @@ void func1(){
         }
         tft.setRotation(0);
       }
-//      else if ((p.x > 90) && (now - old_time > 50)){
-//        tft.drawRect(0, 0, BOXSIZE*6, 80, ILI9341_WHITE);
-//        wait_us(50);
-//        tft.drawRect(0, 0, BOXSIZE*6, 80, ILI9341_BLUE);
-//        for(int i = 1; i<=240; i++){
-//          for (int j = 1; j<=240; j++){
-//            if (oriImage[240 - i][j] == 1){
-//              oriImage[240-i][j] = 0;
-//              tft.drawPixel(i, j+80, ILI9341_BLACK);
-//            }
-//          }
-//        }
-//        for(int i = 0; i<32; i++){
-//          for(int j = 0; j<32; j++){
-//            downscaledImage[i][j] = 0;
-//          }
-//        }
-//      }
-//      for(int i = 0; i<240; i++){
-//        for(int j = 0; j<240; j++){
-//          oriImage[i][j] = 0;
-//        }
-//      }      
   }
     else{
       now = millis();
@@ -458,45 +380,10 @@ void func1(){
   }
 }
 
-//void func2(){
-////  if (!flag){
-//    Nano33BleKeyboard bleKb("Shining Keyboard");
-//    bleKb.initialize();
-////    bleKb.RunEventThread(func3);
-////    }
-//    
-//  while(1){
-//      auto *kb = bleKb.hid();
-//      kb->sendCharacter('l');
-//
-////      Serial.println("print line");
-//      
-////      if (sendFlag == true){
-//////    stringWriter.write(*kb, 1000);
-////      kb->sendCharacter('l');
-////      sendFlag = false;
-////      wait_us(20);
-////    }
-//  }
-//}
-
-
-
 void setup() {
-  // put your setup code here, to run once:
-
-//  micro_op_resolver.AddMaxPool2D();
-//  micro_op_resolver.AddConv2D();
-//  micro_op_resolver.AddDepthwiseConv2D();
-//  micro_op_resolver.AddReshape();
-//  micro_op_resolver.AddSoftmax();
-//  micro_op_resolver.AddFullyConnected();
-
-//    while (!Serial);     // used for leonardo debugging
  
   Serial.begin(115200);
 
-//  bleKb.initialize();
   Serial.println(F("Cap Touch Paint!"));
   
   tft.begin();
@@ -518,14 +405,7 @@ void setup() {
   tft.drawRect(0, 100, 80, 50, ILI9341_WHITE);
   tft.fillRect(0, 150, 80, 45, ILI9341_GREEN);
   tft.fillRect(0, 195, 80, 45, ILI9341_RED);
-//  tft.setCursor(30, 10);
   tft.setTextColor(ILI9341_WHITE);  
-//  tft.setTextSize(5);
-//  tft.println("8");
-//  tft.setCursor(30, 60);
-//  tft.println("6");
-//  tft.setCursor(30, 110);
-//  tft.println("1");
   tft.setCursor(30, 165); tft.setTextSize(3);
   tft.println("F");
   tft.setCursor(12, 215); tft.setTextSize(1);
@@ -533,36 +413,11 @@ void setup() {
   tft.setRotation(0);
 
   Serial.println("Initialized Successful 1");
-
-//  // get the TFL representation of the model byte array
-//  tflModel = tflite::GetModel(model);
-//  if (tflModel->version() != TFLITE_SCHEMA_VERSION) {
-//    Serial.println("Model schema mismatch!");
-//    while (1);
-//  }
-//
-//  Serial.println("Initialized Successful 2");
-//
-//  // Create an interpreter to run the model
-//  tflInterpreter = new tflite::MicroInterpreter(tflModel, micro_op_resolver, tensorArena, tensorArenaSize, &tflErrorReporter);
-//
-//  Serial.println("Initialized Successful 2.5");
-//  // Allocate memory for the model's input and output tensors
-//  tflInterpreter->AllocateTensors();
-//
-//  Serial.println("Initialized Successful 2.7");
-//
-//  // Get pointers for the model's input and output tensors
-//  tflInputTensor = tflInterpreter->input(0);
-//  tflOutputTensor = tflInterpreter->output(0);
-//
-//  Serial.println("Initialized Successful 3");
   
   t1.start(func1);
   Serial.println("Thread 1 initialized");
   bleKb.initialize();
   MbedBleHID_RunEventThread();
-//  t2.start(func2);
 
 }
 
@@ -572,7 +427,7 @@ void loop(){
   if (bleKb.connected() == false) {
     animateLED(LED_BUILTIN, (bleKb.has_error()) ? 118 
                                                 : 1185);
-//    wait_us(20);
+
     return;
   }
   
@@ -581,14 +436,12 @@ void loop(){
   auto *kb = bleKb.hid();
 
   if (sendFlag == true){
-//    stringWriter.write(*kb, 1000);
     kb->sendCharacter(recChar);
     sendFlag = false;
   }
 
-//  if (bleKb.connected() == true) {
     sem.release();
-//  }
+
   wait_us(20);
   
 }
