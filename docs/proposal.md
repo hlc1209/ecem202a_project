@@ -43,7 +43,7 @@ First of all, the experience of handwriting recognition input is critical, i.e.,
 
 To build such a system, the following skill sets and resources are needed.
 
-## Skill sets
+#### Skill sets
 * Embedded system
 * Real-time operating system
 * Bluetooth Low Energy (BLE)
@@ -51,16 +51,16 @@ To build such a system, the following skill sets and resources are needed.
 * Electronics
 * Machine Learning and model compression
 
-## Skill sets potentially in need
+#### Skill sets potentially in need
 * PCB design
 * Mechanical Design
 
-## Hardware
+#### Hardware
 * Arduino Nano 33 BLE Sense
 * Adafruit 2.8" TFT Touch Shield v2 (capacitive touch)
 * Breadboard
 
-## Hardware potentially in need
+#### Hardware potentially in need
 * Boost converter
 * 3d Printer
 
@@ -113,36 +113,36 @@ Yu Nong will be mainly responsible for task 1, 3, 5, 6, 7 and Hanlong Chen will 
 
 The proposed timeline is the following.
 
-## Week 1-2 (Oct. 4-17) 
+#### Week 1-2 (Oct. 4-17) 
 
 * Research for project ideas with focus on human interface device (HID)
 * Form a team of 2 considering the scope and difficulty of the project.
   
-## Week 3 (Oct. 18-24) 
+#### Week 3 (Oct. 18-24) 
 
 * Create project website on Github and finish the section of abstract.
 * Discuss project idea and validate the feasibility.
 * Place order for necessary components.
 * Research into the user Manual and tutorial of the purchased components.
 
-## Week 4 (Oct. 25-31)
+#### Week 4 (Oct. 25-31)
 
 * Finalize detailed project ideas and create timeline for the project. 
 * Analyze applications and review literatures that are similar to this project.
 * Start wiring and testing of the touchscreen.
 * Start collecting datasets for DL model training and building the model architecture using PC.
 
-## Week 5 (Nov. 1-7)
+#### Week 5 (Nov. 1-7)
 
 * Finish wiring and interfacing the touchscreen with Arduino Nano 33 BLE Sense.
 * Train the DL model using GPU and keep adjusting the architecture to obtain better performance with smaller model sizes.
 
-## Week 6 (Nov. 8-14)
+#### Week 6 (Nov. 8-14)
 
 * Finish BLE connection between Arduino Nano 33 BLE Sense and PC with HID keystroke input.
 * Attempt to run trained models on Arduino Nano 33 BLE Sense and profiling the performance to adjust the architecture.
 
-## Week 7-8 (Nov. 15-21)
+#### Week 7-8 (Nov. 15-21)
 
 * Finish pruning, digitization, and model compression on ML model.
 * Implement the compressed ML model in Arduino Nano 33 BLE Sense. 
@@ -151,14 +151,14 @@ The proposed timeline is the following.
 * Resolve issues on timing and ensure the system meets the minimum requirement of real-time response.
 * Prepare a demo video and report as a progress update.
 
-## Week 9-10 (Nov. 22- Dec. 5)
+#### Week 9-10 (Nov. 22- Dec. 5)
 
 * Tune the and further compress the ML model to improve the performance on both accuracy and timing.
 * Add more functions to the GUI to enable more interesting interactions.
 * Debug issues found through testing.
 * Consider to make a 3D-printed case to package the system.
 
-## Week 11 (Dec. 6-11)
+#### Week 11 (Dec. 6-11)
 * Evaluate the performance of the furnished system and compose the final report.
 * Update the project website with detail testing results, source code, and thorough documentation.
 * Prepare Zoom presentation. 

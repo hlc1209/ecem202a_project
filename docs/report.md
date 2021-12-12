@@ -18,7 +18,7 @@ In this project, we build a low-cost, small-size and low-power real-time handwri
 
 # 1. Introduction
 
-## 1.1 Motivation & Objective
+#### 1.1 Motivation & Objective
 Designers have long recognized that handwriting with a pen offers more fluidity compared with typing. After the keyboard has been the dominant input device for electronics for years, stylus pen comes into play as another commonly-used input device for electronics. While stylus pen becomes increasingly popular over the years, problems remain in this type of device, which could be turned into sizable market if properly solved. 
 
 ![](media/ipad_scribble.jpg)
@@ -29,7 +29,7 @@ Secondly, hardware support is relatively stringent. Most of the handwritten solu
 
 To tackle the aforementioned problems, we propose to develop a low-cost and low-power device with a capacitive touchscreen that is able to offers a fluent handwriting input experience and send commands/keyboard strokes to bluetooth low energy (BLE) enabled devices as an alternative to conventional keyboard input. Such device is essentially a new type of human interface devices (HID) and able to work universally with any BLE enabled devices with minimum change in firmware. Since the handwritten recognition is done on this embedded device, there would be little hardware constraints for the interfaced devices except BLE capability. 
 
-## 1.2 Novelty & Rationale
+#### 1.2 Novelty & Rationale
 
 Nowadays, handwritten recognition solutions either work on specialized devices or touchscreen enabled high-end electronics, e.g., BMW iDrive infotainment system and Apple iPad. Also, the handwritten recognition algorithm of these devices typical requires the support of powerful processors. We envision a system with a small touch screen built in to collect handwritten inputs and infer the written characters on chip before sending out the commands/keyboard strokes. 
 
@@ -37,17 +37,17 @@ Therefore, high compatibility and fluent input experience on a low-cost, low-pow
 
 Moreover, given the flexibility of handwritten input, the device has unlimited possibilities for extended functionality. For example, performing calculations on handwritten numbers and symbols and transmitting the final results to the terminal equipment via BLE.
 
-## 1.3 Potential Impact
+#### 1.3 Potential Impact
 
 If successfully made, this device could become a new type of human interface device that is compatible to any BLE enable devices not limited to high-end electronics like laptops and tablets. For instance, it could be used to recognize and convert user's writings to keyboard strokes to replace the functionality of a keyboard upon user's desire. Similarly, it could also become an input device of speech-synthesizer for speech impaired people. 
 
 In short, such device brings a new way of electronic interface with high performance, great compatibility and low cost. 
 
-## 1.4 Challenges
+#### 1.4 Challenges
 
 First of all, the experience of handwriting recognition input is critical, i.e., low latency, high accuracy and high efficiency. After we decided to use on-device deep learning inference for handwriting character recognition, it became pivotal to implement fast and accurate model inference while handling GUI drawing, user stroke input and BLE transmission on an ultra-low power device. Secondly, how to achieve fluent handwriting input on ultra-low power devices is to be overcome. We need a deep collaboration of deep learning models and GUI to achieve this. Likewise, data transmission via BLE is very important and needs to be user friendly, low latency and highly reliable. 
 
-## 1.5 Requirements for Success
+#### 1.5 Requirements for Success
 
 To build such a system, the following skill sets and resources are needed.
 
@@ -72,7 +72,7 @@ Hardware potentially in need
 * Boost converter
 * 3d Printer
 
-## 1.6 Metrics of Success: 
+#### 1.6 Metrics of Success: 
 
 The success of the project will be evaluated through the following metrics. 
 
@@ -110,10 +110,10 @@ The User Interface of the device is shown in figure below. The black square area
     <img src="media/UI.jpg" width="60%"/>
 </p>
 
-### Fast Mode 
+#### Fast Mode 
 In fast mode, after the user is done writing one character, the character with the highest score from inference is sent out through Bluetooth Low Energy immediately. Such setup allows maximum input speed.
 
-### Slow Mode
+#### Slow Mode
 In slow mode, the written character will not be sent out instantly after the inference is done. Rather, the characters with the top 3 scores from the inference will be printed in the blue panel, allowing users to confirm and select the correct character to send out as keyboard stroke. If none of the inferred character matches user's input, the user can simply tap the 'backspace' button to clear the screen and rewrite the character. With such design, the input speed is slower in exchange for more robust inference.
 
 <p align="middle">
@@ -206,7 +206,7 @@ The figures below are some examples of the training images after pre-processing 
    <img src="media/input_5.png" width="28%"/>
 </p>
 
-##### Design Model Architecture
+#### Design Model Architecture
 Due to the limitation of Arduino Nano 33 BLE, there are strict limitations on model architecture. The following requirements should be met for the success of this project:
 
 1. Considering the target overall latency after the user finished writing a character is 200ms, the inference time should be equal or less than 150ms.
@@ -228,7 +228,7 @@ We have tried many activation functions, such as ReLU, PReLU, ELU and other vari
 
 The final model architecture has 11,160 parameters in total. The accuracy on the training set is 81.59% and on the test set is 83.64%.
 
-### Implementation & Optimization
+#### Implementation & Optimization
 
 We use Tensorflow to implement and train the model and then use Tensorflow Lite Micro to quantize and convert the model to C header file.
 
