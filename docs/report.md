@@ -209,6 +209,7 @@ Refer to the following excel files for detailed testing results:
 </p>
 
 ## 4.3 Latency Analysis
+In lantency evaluation, we record the time spent on resizing the image until the infered character gets sent out through BLE in fast mode. The latency is printed in the serial monitor and we calculate the average latency from 50 trials. The recorded data can be found [here](). The average latency over 50 trials is 208.1 ms. We've reached the preset goal from proposal.
 
 
 # 5. Discussion and Conclusions
