@@ -10,21 +10,96 @@
 
 # Abstract
 
-Provide a brief overview of the project objectives, approach, and results.
+In this project, we build a low-cost, small-size and low-power real-time handwritten character recognition system based on Arduino Nano 33 BLE Sense with a touch screen, which is capable of offering fluent handwriting input experience in real-time and send recognized characters to BLE-enabled terminal equipment as keyboard strokes. Inference of character recognition deep learning model is done on the Arduino Nano 33 BLE Sense to enable the compatibility to any BLE-enabled devices. We achieve a accuracy of 80.6% in fast mode with a latency of 200ms and 90.5% in slow mode.
+
+<p align="middle">
+    <img src="media/system_setup.jpg" width="80%"/>
+</p>
 
 # 1. Introduction
 
-This section should cover the following items:
+## 1.1 Motivation & Objective
+Designers have long recognized that handwriting with a pen offers more fluidity compared with typing. After the keyboard has been the dominant input device for electronics for years, stylus pen comes into play as another commonly-used input device for electronics. While stylus pen becomes increasingly popular over the years, problems remain in this type of device, which could be turned into sizable market if properly solved. 
 
-* Motivation & Objective: What are you trying to do and why? (plain English without jargon)
-* State of the Art & Its Limitations: How is it done today, and what are the limits of current practice?
-* Novelty & Rationale: What is new in your approach and why do you think it will be successful?
-* Potential Impact: If the project is successful, what difference will it make, both technically and broadly?
-* Challenges: What are the challenges and risks?
-* Requirements for Success: What skills and resources are necessary to perform the project?
-* Metrics of Success: What are metrics by which you would check for success?
+![](media/ipad_scribble.jpg)
+
+First, the cost of handwritten-enabled devices with a smooth experience is high. Currently, multiple solutions exist for scribble digitization. For example, Microsoft Surface Pro has a built-in Wacom-made digitier layer and a pen designed for it to achieve such functionality. Apple iPad introduced the scribble feature in iOS 14 with an extremely enhanced seamless handwriting input experience, but it requires the powerful computing power of the A14 chip and a separately sold apple pencil. Other solutions like capacitive and bluetooth stylus have readily lower cost. Still, they can only work with devices with touchscreen enabled and rely on hardware-specific optimized software to deliver a good experience. It is undeniably true that the vast majority of low-end devices offer a very poor handwriting experience.
+
+Secondly, hardware support is relatively stringent. Most of the handwritten solutions for electronics does not generalize well to different devices and mainly focus on the need of high-end electronics. Also, if handwritten characters are used as input, the recognition of handwritten characters becomes the burden on the interfaced device, placing demands on the system's software and hardware performance, increasing the system's complexity and reducing its reliability and real-time performance.
+
+To tackle the aforementioned problems, we propose to develop a low-cost and low-power device with a capacitive touchscreen that is able to offers a fluent handwriting input experience and send commands/keyboard strokes to bluetooth low energy (BLE) enabled devices as an alternative to conventional keyboard input. Such device is essentially a new type of human interface devices (HID) and able to work universally with any BLE enabled devices with minimum change in firmware. Since the handwritten recognition is done on this embedded device, there would be little hardware constraints for the interfaced devices except BLE capability. 
+
+## 1.2 Novelty & Rationale
+
+Nowadays, handwritten recognition solutions either work on specialized devices or touchscreen enabled high-end electronics, e.g., BMW iDrive infotainment system and Apple iPad. Also, the handwritten recognition algorithm of these devices typical requires the support of powerful processors. We envision a system with a small touch screen built in to collect handwritten inputs and infer the written characters on chip before sending out the commands/keyboard strokes. 
+
+Therefore, high compatibility and fluent input experience on a low-cost, low-power compact device is the main aspect that makes our proposed device stand out from other touchscreen solutions available in the market. 
+
+Moreover, given the flexibility of handwritten input, the device has unlimited possibilities for extended functionality. For example, performing calculations on handwritten numbers and symbols and transmitting the final results to the terminal equipment via BLE.
+
+## 1.3 Potential Impact
+
+If successfully made, this device could become a new type of human interface device that is compatible to any BLE enable devices not limited to high-end electronics like laptops and tablets. For instance, it could be used to recognize and convert user's writings to keyboard strokes to replace the functionality of a keyboard upon user's desire. Similarly, it could also become an input device of speech-synthesizer for speech impaired people. 
+
+In short, such device brings a new way of electronic interface with high performance, great compatibility and low cost. 
+
+## 1.4 Challenges
+
+First of all, the experience of handwriting recognition input is critical, i.e., low latency, high accuracy and high efficiency. After we decided to use on-device deep learning inference for handwriting character recognition, it became pivotal to implement fast and accurate model inference while handling GUI drawing, user stroke input and BLE transmission on an ultra-low power device. Secondly, how to achieve fluent handwriting input on ultra-low power devices is to be overcome. We need a deep collaboration of deep learning models and GUI to achieve this. Likewise, data transmission via BLE is very important and needs to be user friendly, low latency and highly reliable. 
+
+## 1.5 Requirements for Success
+
+To build such a system, the following skill sets and resources are needed.
+
+Skill sets
+* Embedded system
+* Real-time operating system
+* Bluetooth Low Energy (BLE)
+* SPI and I2C
+* Electronics
+* Machine Learning and model compression
+
+Skill sets potentially in need
+* PCB design
+* Mechanical Design
+
+Hardware
+* Arduino Nano 33 BLE Sense
+* Adafruit 2.8" TFT Touch Shield v2 (capacitive touch)
+* Breadboard
+
+Hardware potentially in need
+* Boost converter
+* 3d Printer
+
+## 1.6 Metrics of Success: 
+
+The success of the project will be evaluated through the following metrics. 
+
+1. Accuracy:
+   The success rate of recognizing written characters.
+
+2. Response time:
+   The time from finishing writing a character to the completion of transmission.
+
+3. Fluentness: 
+   The time to write a series of characters.
+
+4. Power consumption:
+   The power consumption of the entire system.
+
+5. Size & Weight:
+   The size and weight of the overall system.
 
 # 2. Related Work
+
+In 2018, Fernández et. al developed a real-time handwritten letter recognition system based on Raspberry Pi 3 using ConvNets which is able to achieve an accuracy of 93.4% and an average response time of 21.9 ms. This is the best performance of all similar systems that run the machine learning model offline considering accuracy, response, power consumption, and size. 
+
+However, limitations remain on this system. First, the machine learning used in this system is still too large for the microcontroller. Also the model could be further compressed with proper pruning, quantization, and other model compression techniques. Second, by replacing the Raspberry Pi 3 with a low-power microcontroller (i.e., the Arduino Nano 33 BLE Sense in our case), the power consumption and size of the system can be further reduced. Finally and most importantly, this article only demonstrates the feasibility of individual character recognition using deep learning networks in embedded systems, and does not illustrate the performance of handwriting recognition in real-world applications when coupled with peripherals, such as touch screen and BLE-enabled terminals. 
+
+In 2019, Google Research uses recurrent neural network to enable seamless handwriting input on Android devices. Unlike traditional hand-designed heuristics to cut the handwritten input into single characters, Google build an RNN model that operates on the whole input. They convert a series of handwritten inputs into a sequence of Bessel curves that are fed into the RNN to get the actual written characters.
+
+Nevertheless, this powerful approach relies on strong chips on Android devices and even requires specially designed chips like Google Tensor with TPU cores to deliver smooth interactions, which is unacceptable in our project.
 
 # 3. Technical Approach
 
@@ -212,10 +287,6 @@ Refer to the following excel files for detailed testing results:
 
 [Test Results for Slow Mode](https://github.com/hlc1209/ecem202a_project/blob/main/data/testing_slow_mode.xlsx)
 
-<p align="middle">
-    <img src="media/system_setup.jpg" width="60%"/>
-</p>
-
 ## 4.3 Latency Analysis
 In lantency evaluation, we record the time spent on resizing the image until the infered character gets sent out through BLE in fast mode. The latency is printed in the serial monitor and we calculate the average latency from 50 trials. The recorded data can be found [here](https://github.com/hlc1209/ecem202a_project/blob/main/data/testing_latency.xlsx). The average latency over 50 trials is 208.1 ms. We've reached the preset goal from proposal.
 
@@ -265,3 +336,11 @@ Third, more evaluation of accuracy need to be done for different user, especiall
 
 
 # 6. References
+
+D. Núñez Fernández and S. Hosseini, "Real-Time Handwritten Letters Recognition on an Embedded Computer Using ConvNets," 2018 IEEE Sciences and Humanities International Research Conference (SHIRCON), 2018, pp. 1-4, doi: 10.1109/SHIRCON.2018.8592981.
+
+Saldanha, Luca Bochi and Christophe Bobda. “An embedded system for handwritten digit recognition.” J. Syst. Archit. 61 (2015): 693-699.
+
+Carbune, Victor, et al. "Fast multi-language LSTM-based online handwriting recognition." International Journal on Document Analysis and Recognition (IJDAR) 23.2 (2020): 89-102.
+
+Feuz, Sandro, and Pedro Gonnet. “RNN-Based Handwriting Recognition in Gboard.” Google AI Blog, 7 Mar. 2019, http://ai.googleblog.com/2019/03/rnn-based-handwriting-recognition-in.html. 

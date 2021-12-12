@@ -15,7 +15,7 @@ To tackle the aforementioned problems, we propose to develop a low-cost and low-
 
 In 2018, Fernández et. al developed a real-time handwritten letter recognition system based on Raspberry Pi 3 using ConvNets which is able to achieve an accuracy of 93.4% and an average response time of 21.9 ms. This is the best performance of all similar systems that run the machine learning model offline considering accuracy, response, power consumption, and size. 
 
-However, limitations remain on this system and major improvement can be achieved on this type of system. First, the machine learning model used in this system can be further compressed with proper pruning, quantization, and other model compression techniques. Second, by replacing the Raspberry Pi 3 with a low-power microcontroller (i.e., the Arduino Nano 33 BLE Sense in our case), the power consumption and size of the system can be further reduced. Finally and most importantly, this article only demonstrates the feasibility of individual character recognition using deep learning networks in embedded systems, and does not illustrate the performance of handwriting recognition in real-world applications where efficiency, usability, and accuracy are extremely important.
+However, limitations remain on this system. First, the machine learning used in this system is still too large for the microcontroller. Also the model could be further compressed with proper pruning, quantization, and other model compression techniques. Second, by replacing the Raspberry Pi 3 with a low-power microcontroller (i.e., the Arduino Nano 33 BLE Sense in our case), the power consumption and size of the system can be further reduced. Finally and most importantly, this article only demonstrates the feasibility of individual character recognition using deep learning networks in embedded systems, and does not illustrate the performance of handwriting recognition in real-world applications when coupled with peripherals, such as touch screen and BLE-enabled terminals. 
 
 In 2019, Google Research uses recurrent neural network to enable seamless handwriting input on Android devices. Unlike traditional hand-designed heuristics to cut the handwritten input into single characters, Google build an RNN model that operates on the whole input. They convert a series of handwritten inputs into a sequence of Bessel curves that are fed into the RNN to get the actual written characters.
 
@@ -27,7 +27,7 @@ Nowadays, handwritten recognition solutions either work on specialized devices o
 
 Therefore, high compatibility and fluent input experience on a low-cost, low-power compact device is the main aspect that makes our proposed device stand out from other touchscreen solutions available in the market. 
 
-Moreover, given the flexibility of handwritten input, our device enables fast execution of complex commands by binding a custom stroke to a sequence of instructions. Simultaneously, the device has unlimited possibilities for extended functionality. For example, performing calculations on handwritten numbers and symbols and transmitting the final results to the terminal equipment via BLE.
+Moreover, given the flexibility of handwritten input, the device has unlimited possibilities for extended functionality. For example, performing calculations on handwritten numbers and symbols and transmitting the final results to the terminal equipment via BLE.
 
 # 4. Potential Impact
 
@@ -72,16 +72,16 @@ The success of the project will be evaluated through the following metrics.
    The success rate of recognizing written characters.
 
 2. Response time:
-   The time from writing a character to the completion of transmission.
+   The time from finishing writing a character to the completion of transmission.
 
 3. Fluentness: 
-   The time from writing a sentence to the completion of transmission.
+   The time to write a series of characters.
 
 4. Power consumption:
    The power consumption of the entire system.
 
-5. Weight:
-   The weight of the overall system.
+5. Size & Weight:
+   The size and weight of the overall system.
 
 
 # 8. Execution Plan
