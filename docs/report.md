@@ -57,7 +57,20 @@ For fast resizing, we use box sampling to sum the pixel values in a box and skip
 </p>
 
 ## Printed Circuit Board Design
+The system is first built on breadboard, shown in figure 3 below. After the basic functionality is verified, we ported the design to a 2-layer PCB to eliminate the jumper wires and improve mobility. We use easyEDA to PCB drawing for the ease of PCB ordering. The PCB drawing and finished PCB are shown in figure 4 and 5, respectively.
+<p align="middle">
+    <img src="media/breadboard.PNG" width="50%"/>
+</p>
 
+<p align="middle">
+    <img src="media/PCB.PNG" width="50%"/>
+</p>
+
+In our PCB design, 2 3.7V Lipo batteries are used as power source. 2 3.7V lipo batteries are placed in series to supply 7.4V voltage to Arduino Nano 33 BLE Sense. Our chosen touchscreen Adafruit ILI9341 has a built-in LDO and accepts input voltage from 2.7V to 5.5V. Since Arduino Nano 33 BLE Sense has a 3.3V pin, we decided to add 2 capacitor footprints where 1 footprint connects 3.3V to the input of touchscreen and the other one connects 3.7V (voltage of one of the battery) to test which supply voltage is more stable. 
+
+## Real-time Operating System
+
+## 3D-printed Model for packaging
 
 ## Character recognition using Deep Learning
 
@@ -156,7 +169,7 @@ For the MNIST dataset, we achieved a test accuracy of 95.38%. Considering the mo
 </p>
 
 ## 4.1 Real world evaluation
-After the system is migrate from breadboard to PCB, 2 demonstrations are made for fast mode and slow mode. Refer to the links below.
+After the system is migrated from breadboard to PCB, 2 demonstrations are made for fast mode and slow mode. Refer to the links below.
 
 Demo Video for Fast Mode:
 Demo Video for Slow Mode:
@@ -164,7 +177,7 @@ Demo Video for Slow Mode:
 For evaluations, the system is tested with 2 3.7V LiPo battery as the power source shown in figure 4 below. Then, the recognition latency and recognition accuracy are tested. The recognition accuracy is tested under fast mode and slow mode separately. In the test for slow mode, we count the trial as success if the written character shows up as 1 of the 3 selections on the left panel. In the test for fast mode, when calculating accuracy, only if the highest scoring character in the output matches the input is considered successful. In testing for accuracy, we handwrite each character (0 to 9, a to z, and A to Z) for 5 times and calculate the average accuracy over all characters. The accuracy for fast mode is 80.6% and the accuracy for slow mode is 95.4%. 
 
 <p align="middle">
-    <img src="media/system_setup.jpg" width="100%"/>
+    <img src="media/system_setup.jpg" width="60%"/>
 </p>
 
 
